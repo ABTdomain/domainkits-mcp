@@ -107,6 +107,22 @@ For complete newly registered domains search with advanced filters and export, v
 
 [DomainKits](https://domainkits.com) - Domain intelligence tools for investors, brand managers, and researchers.
 
+
+## Privacy
+
+This service is designed with privacy in mind:
+
+- **IP addresses are anonymized** - Only the first two segments are logged (e.g., `192.168.x.x`)
+- **Search queries are anonymized** - Only first and last 2 characters are logged (e.g., `go***le`)
+- **Logs are retained for 7 days** and automatically deleted
+- **No personal data is collected** - No accounts, no cookies, no tracking
+- **No data is shared** with third parties
+
+For full privacy policy, visit [domainkits.com/privacy](https://domainkits.com/privacy)
+
+This service complies with GDPR data minimization principles.
+
+
 ## License
 
 MIT
