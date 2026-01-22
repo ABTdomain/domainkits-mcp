@@ -94,7 +94,7 @@ curl -X POST https://mcp.domainkits.com/mcp/nrds \
 
 ## Limits
 
-- 7 requests per minute per IP
+- 10 requests per minute per IP
 - 5 domains per response
 - Data may have 24-48 hour delay
 
