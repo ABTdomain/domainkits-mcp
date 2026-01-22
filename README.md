@@ -53,26 +53,43 @@ Search for newly registered domains by keyword.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| keyword | string | Yes | Search term (a-z, 0-9, hyphen only, max 20 chars) |
-| days | integer | Yes | 1, 2, or 3 |
+| Name | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| keyword | string | Yes | - | Search term (a-z, 0-9, hyphen only, max 20 chars) |
+| days | integer | Yes | - | 1-7 |
+| position | string | No | any | `start`, `end`, or `any` |
+| tld | string | No | all | Filter by TLD (e.g., `com`, `net`, `org`) |
 
-**Response:**
+**Position Examples:**
+
+| Position | Keyword | Matches |
+|----------|---------|---------|
+| `start` | ai | ai-tools.com, aihelper.net |
+| `end` | ai | openai.com, myai.net |
+| `any` | ai | ai-tools.com, openai.com,omain-ai-hub.net |
+
+**Example Request:**
+```bash
+curl -X POST https://mcp.domainkits.com/mcp/nrds \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_domains","arguments":{"keyword":"ai","days":7,"position":"start","tld":"com"}}}'
+```
+
+**Example Response:**
 ```json
 {
-  "total": 428,
+  "total": 1234,
   "domains": [
-    "cryptobet365.biz",
-    "cryptobot-contest-mrxmxr.bond",
-    "cryptob2.buzz",
-    "cryptob3.buzz",
-    "cryptohq.capital",
-    "cryptoaitraders.com",
-    "latitude18crypto.com",
-    "crypto-toolman.com",
-    "eligiblecrypto.com",
-    "cryptonewsmap.com"
+    "ai-tools.com",
+    "ai-helper.com",
+    "ai-market.com",
+    "ai-studio.com",
+    "ai-hub.com",
+    "ai-labs.com",
+    "ai-tech.com",
+    "ai-pro.com",
+    "ai-zone.com",
+    "ai-world.com"
   ],
   "tip": "Search more at https://domainkits.com/search/new"
 }
@@ -86,7 +103,7 @@ Search for newly registered domains by keyword.
 
 ## Full Search
 
-For complete results with filters and export, visit [domainkits.com/search/new](https://domainkits.com/search/new)
+For complete results with advanced filters and export, visit [domainkits.com/search/new](https://domainkits.com/search/new)
 
 ## About
 
