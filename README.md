@@ -21,7 +21,9 @@ Edit config file:
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://mcp.domainkits.com/mcp/nrds"
+        "https://mcp.domainkits.com/mcp/nrds",
+        "--transport",
+        "http-first"
       ]
     }
   }
