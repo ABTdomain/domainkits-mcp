@@ -49,7 +49,7 @@ Edit `~/.cursor/mcp.json`:
 
 ## Tool
 
-### search_domains
+### search_nrds
 
 Search for newly registered domains by keyword.
 
@@ -74,7 +74,7 @@ Search for newly registered domains by keyword.
 ```bash
 curl -X POST https://mcp.domainkits.com/mcp/nrds \
   -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_domains","arguments":{"keyword":"ai","days":7,"position":"start","tld":"com"}}}'
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_nrds","arguments":{"keyword":"ai","days":7,"position":"start","tld":"com"}}}'
 ```
 
 **Example Response:**
