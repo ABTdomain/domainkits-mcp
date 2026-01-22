@@ -1,4 +1,4 @@
-# DomainKits MCP Server
+# DomainKits MCP Server - Newly Registered Domains Search
 
 Search newly registered domains through MCP-compatible clients.
 
@@ -66,7 +66,7 @@ Search for newly registered domains by keyword.
 |----------|---------|---------|
 | `start` | ai | ai-tools.com, aihelper.net |
 | `end` | ai | openai.com, myai.net |
-| `any` | ai | ai-tools.com, openai.com,omain-ai-hub.net |
+| `any` | ai | ai-tools.com, openai.com, domain-ai-hub.net |
 
 **Example Request:**
 ```bash
@@ -84,12 +84,7 @@ curl -X POST https://mcp.domainkits.com/mcp/nrds \
     "ai-helper.com",
     "ai-market.com",
     "ai-studio.com",
-    "ai-hub.com",
-    "ai-labs.com",
-    "ai-tech.com",
-    "ai-pro.com",
-    "ai-zone.com",
-    "ai-world.com"
+    "ai-hub.com"
   ],
   "tip": "Search more at https://domainkits.com/search/new"
 }
@@ -97,13 +92,14 @@ curl -X POST https://mcp.domainkits.com/mcp/nrds \
 
 ## Limits
 
-- 10 requests per minute per IP
-- 10 domains per response
+- 7 requests per minute per IP
+- 5 domains per response
 - Data may have 24-48 hour delay
 
 ## Full Search
 
-For complete results with advanced filters and export, visit [domainkits.com/search/new](https://domainkits.com/search/new)
+For complete newly registered domains search with advanced filters and export, visit [domainkits.com/search/new](https://domainkits.com/search/new)
+
 
 ## About
 
