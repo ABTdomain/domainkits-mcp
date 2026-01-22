@@ -82,11 +82,11 @@ curl -X POST https://mcp.domainkits.com/mcp/nrds \
 {
   "total": 1234,
   "domains": [
-    "ai-tools.com",
-    "ai-helper.com",
-    "ai-market.com",
-    "ai-studio.com",
-    "ai-hub.com"
+    "aitools.com",
+    "aihelper.com",
+    "aimarket.com",
+    "aistudio.com",
+    "aihub.com"
   ],
   "tip": "Search more at https://domainkits.com/search/new"
 }
