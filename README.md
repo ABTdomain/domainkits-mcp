@@ -9,7 +9,6 @@ Domain intelligence tools through MCP-compatible clients.
 | `https://mcp.domainkits.com/mcp/nrds` | Newly Registered Domains Search |
 | `https://mcp.domainkits.com/mcp/ns-reverse` | NS Reverse Lookup |
 | `https://mcp.domainkits.com/mcp/whois` | WHOIS Lookup |
-| `https://mcp.domainkits.com/mcp/dns` | DNS Lookup |
 
 ## Configuration
 
@@ -47,15 +46,6 @@ Edit config file:
         "--transport",
         "http-first"
       ]
-    },
-    "domainkits-dns": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.domainkits.com/mcp/dns",
-        "--transport",
-        "http-first"
-      ]
     }
   }
 }
@@ -78,10 +68,6 @@ Edit `~/.cursor/mcp.json`:
     "domainkits-whois": {
       "command": "npx",
       "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/whois"]
-    },
-    "domainkits-dns": {
-      "command": "npx",
-      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/dns"]
     }
   }
 }
@@ -163,37 +149,9 @@ curl -X POST https://mcp.domainkits.com/mcp/whois \
 
 ---
 
-### dns_lookup
-
-Look up DNS records for a domain.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| domain | string | Yes | Domain name (e.g., `example.com`) |
-
-**Response fields:**
-- `domain` - Domain name
-- `a` - A records (IPv4)
-- `aaaa` - AAAA records (IPv6)
-- `ns` - Nameserver records
-- `mx` - Mail exchange records
-- `txt` - TXT records
-- `cname` - CNAME records
-
-**Example:**
-```bash
-curl -X POST https://mcp.domainkits.com/mcp/dns \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dns_lookup","arguments":{"domain":"google.com"}}}'
-```
-
----
-
 ## Limits
 
-- 10 requests per minute per IP
+- 200 requests per minute per IP
 - 5 domains per response (NRDS, NS Reverse)
 - NRDS data may have 24-48 hour delay
 
@@ -203,7 +161,6 @@ For complete results with advanced filters and export:
 - **NRDS**: [domainkits.com/search/new](https://domainkits.com/search/new)
 - **NS Reverse**: [domainkits.com/tools/ns-reverse](https://domainkits.com/tools/ns-reverse)
 - **WHOIS**: [domainkits.com/tools/whois](https://domainkits.com/tools/whois)
-- **DNS**: [domainkits.com/tools/dns](https://domainkits.com/tools/dns)
 
 ## About
 
