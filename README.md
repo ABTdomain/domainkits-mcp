@@ -1,11 +1,13 @@
-# DomainKits MCP Server - Newly Registered Domains Search
+# DomainKits MCP Server
 
-Search newly registered domains through MCP-compatible clients.
+Domain intelligence tools through MCP-compatible clients.
 
-## Endpoint
-```
-https://mcp.domainkits.com/mcp/nrds
-```
+## Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `https://mcp.domainkits.com/mcp/nrds` | Newly Registered Domains Search |
+| `https://mcp.domainkits.com/mcp/ns-reverse` | NS Reverse Lookup |
 
 ## Configuration
 
@@ -14,10 +16,12 @@ https://mcp.domainkits.com/mcp/nrds
 Edit config file:
 - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+**NRDS (Newly Registered Domains Search)**
 ```json
 {
   "mcpServers": {
-    "domainkits": {
+    "domainkits-nrds": {
       "command": "npx",
       "args": [
         "mcp-remote",
@@ -30,13 +34,32 @@ Edit config file:
 }
 ```
 
-### Cursor
-
-Edit `~/.cursor/mcp.json`:
+**NS Reverse Lookup**
 ```json
 {
   "mcpServers": {
-    "domainkits": {
+    "domainkits-ns-reverse": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.domainkits.com/mcp/ns-reverse",
+        "--transport",
+        "http-first"
+      ]
+    }
+  }
+}
+```
+
+### Cursor
+
+Edit `~/.cursor/mcp.json`:
+
+**NRDS**
+```json
+{
+  "mcpServers": {
+    "domainkits-nrds": {
       "command": "npx",
       "args": [
         "mcp-remote",
@@ -47,7 +70,24 @@ Edit `~/.cursor/mcp.json`:
 }
 ```
 
-## Tool
+**NS Reverse Lookup**
+```json
+{
+  "mcpServers": {
+    "domainkits-ns-reverse": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.domainkits.com/mcp/ns-reverse"
+      ]
+    }
+  }
+}
+```
+
+---
+
+## Tools
 
 ### search_nrds
 
@@ -92,26 +132,67 @@ curl -X POST https://mcp.domainkits.com/mcp/nrds \
 }
 ```
 
+---
+
+### search_ns_reverse
+
+Look up gTLD domains hosted on a specific nameserver.
+
+**Parameters:**
+
+| Name | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| ns | string | Yes | - | Nameserver hostname (e.g., `ns1.google.com`) |
+| tld | string | No | all | Filter by TLD (e.g., `com`, `net`, `org`) |
+| min_len | integer | No | - | Minimum domain prefix length |
+| max_len | integer | No | - | Maximum domain prefix length |
+
+**Example Request:**
+```bash
+curl -X POST https://mcp.domainkits.com/mcp/ns-reverse \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_ns_reverse","arguments":{"ns":"ns1.google.com","tld":"com","min_len":4,"max_len":8}}}'
+```
+
+**Example Response:**
+```json
+{
+  "ns": "ns1.google.com",
+  "total": 11528,
+  "matched": 1682,
+  "samples": [
+    "aarana.com",
+    "abranesh.com",
+    "acacg.com",
+    "acenews.com",
+    "acgacg.com"
+  ],
+  "found": true,
+  "tip": "View full results at https://domainkits.com/tools/ns-reverse"
+}
+```
+
+---
+
 ## Limits
 
 - 10 requests per minute per IP
 - 5 domains per response
-- Data may have 24-48 hour delay
+- NRDS data may have 24-48 hour delay
 
-## Full Search
+## Full Access
 
-For complete newly registered domains search with advanced filters and export, visit [domainkits.com/search/new](https://domainkits.com/search/new)
-
+For complete results with advanced filters and export:
+- **NRDS**: [domainkits.com/search/new](https://domainkits.com/search/new)
+- **NS Reverse**: [domainkits.com/tools/ns-reverse](https://domainkits.com/tools/ns-reverse)
 
 ## About
 
 [DomainKits](https://domainkits.com) - Domain intelligence tools for investors, brand managers, and researchers.
 
-
 ## Privacy
 
 This service is designed with privacy in mind:
-
 - **IP addresses are anonymized** - Only the first two segments are logged (e.g., `192.168.x.x`)
 - **Search queries are anonymized** - Only first and last 2 characters are logged (e.g., `go***le`)
 - **Logs are retained for 7 days** and automatically deleted
@@ -122,7 +203,7 @@ For full privacy policy, visit [domainkits.com/privacy](https://domainkits.com/p
 
 This service complies with GDPR data minimization principles.
 
-
 ## License
 
 MIT
+EOF
