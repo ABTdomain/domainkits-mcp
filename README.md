@@ -17,7 +17,6 @@ Edit config file:
 - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
-**NRDS (Newly Registered Domains Search)**
 ```json
 {
   "mcpServers": {
@@ -29,15 +28,7 @@ Edit config file:
         "--transport",
         "http-first"
       ]
-    }
-  }
-}
-```
-
-**NS Reverse Lookup**
-```json
-{
-  "mcpServers": {
+    },
     "domainkits-ns-reverse": {
       "command": "npx",
       "args": [
@@ -63,22 +54,18 @@ Edit `~/.cursor/mcp.json`:
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://mcp.domainkits.com/mcp/nrds"
+        "https://mcp.domainkits.com/mcp/nrds",
+        "--transport",
+        "http-first"
       ]
-    }
-  }
-}
-```
-
-**NS Reverse Lookup**
-```json
-{
-  "mcpServers": {
+    },
     "domainkits-ns-reverse": {
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://mcp.domainkits.com/mcp/ns-reverse"
+        "https://mcp.domainkits.com/mcp/ns-reverse",
+        "--transport",
+        "http-first"
       ]
     }
   }
