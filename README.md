@@ -8,6 +8,8 @@ Domain intelligence tools through MCP-compatible clients.
 |----------|-------------|
 | `https://mcp.domainkits.com/mcp/nrds` | Newly Registered Domains Search |
 | `https://mcp.domainkits.com/mcp/ns-reverse` | NS Reverse Lookup |
+| `https://mcp.domainkits.com/mcp/whois` | WHOIS Lookup |
+| `https://mcp.domainkits.com/mcp/dns` | DNS Lookup |
 
 ## Configuration
 
@@ -16,7 +18,6 @@ Domain intelligence tools through MCP-compatible clients.
 Edit config file:
 - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-
 ```json
 {
   "mcpServers": {
@@ -34,6 +35,24 @@ Edit config file:
       "args": [
         "mcp-remote",
         "https://mcp.domainkits.com/mcp/ns-reverse",
+        "--transport",
+        "http-first"
+      ]
+    },
+    "domainkits-whois": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.domainkits.com/mcp/whois",
+        "--transport",
+        "http-first"
+      ]
+    },
+    "domainkits-dns": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.domainkits.com/mcp/dns",
         "--transport",
         "http-first"
       ]
@@ -45,28 +64,24 @@ Edit config file:
 ### Cursor
 
 Edit `~/.cursor/mcp.json`:
-
-**NRDS**
 ```json
 {
   "mcpServers": {
     "domainkits-nrds": {
       "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.domainkits.com/mcp/nrds",
-        "--transport",
-        "http-first"
-      ]
+      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/nrds"]
     },
     "domainkits-ns-reverse": {
       "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.domainkits.com/mcp/ns-reverse",
-        "--transport",
-        "http-first"
-      ]
+      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/ns-reverse"]
+    },
+    "domainkits-whois": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/whois"]
+    },
+    "domainkits-dns": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/dns"]
     }
   }
 }
@@ -89,34 +104,11 @@ Search for newly registered domains by keyword.
 | position | string | No | any | `start`, `end`, or `any` |
 | tld | string | No | all | Filter by TLD (e.g., `com`, `net`, `org`) |
 
-**Position Examples:**
-
-| Position | Keyword | Matches |
-|----------|---------|---------|
-| `start` | ai | ai-tools.com, aihelper.net |
-| `end` | ai | openai.com, myai.net |
-| `any` | ai | ai-tools.com, openai.com, domain-ai-hub.net |
-
-**Example Request:**
+**Example:**
 ```bash
 curl -X POST https://mcp.domainkits.com/mcp/nrds \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_nrds","arguments":{"keyword":"ai","days":7,"position":"start","tld":"com"}}}'
-```
-
-**Example Response:**
-```json
-{
-  "total": 1234,
-  "domains": [
-    "aitools.com",
-    "aihelper.com",
-    "aimarket.com",
-    "aistudio.com",
-    "aihub.com"
-  ],
-  "tip": "Search more at https://domainkits.com/search/new"
-}
 ```
 
 ---
@@ -134,29 +126,67 @@ Look up gTLD domains hosted on a specific nameserver.
 | min_len | integer | No | - | Minimum domain prefix length |
 | max_len | integer | No | - | Maximum domain prefix length |
 
-**Example Request:**
+**Example:**
 ```bash
 curl -X POST https://mcp.domainkits.com/mcp/ns-reverse \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_ns_reverse","arguments":{"ns":"ns1.google.com","tld":"com","min_len":4,"max_len":8}}}'
 ```
 
-**Example Response:**
-```json
-{
-  "ns": "ns1.google.com",
-  "total": 11528,
-  "matched": 1682,
-  "samples": [
-    "aarana.com",
-    "abranesh.com",
-    "acacg.com",
-    "acenews.com",
-    "acgacg.com"
-  ],
-  "found": true,
-  "tip": "View full results at https://domainkits.com/tools/ns-reverse"
-}
+---
+
+### whois_lookup
+
+Look up WHOIS information for a domain.
+
+**Parameters:**
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| domain | string | Yes | Domain name (e.g., `example.com`) |
+
+**Response fields:**
+- `domain` - Domain name
+- `registrar` - Registrar name
+- `created` - Creation date
+- `expires` - Expiry date
+- `updated` - Last updated date
+- `status` - Domain status codes
+- `nameservers` - List of nameservers
+
+**Example:**
+```bash
+curl -X POST https://mcp.domainkits.com/mcp/whois \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"whois_lookup","arguments":{"domain":"google.com"}}}'
+```
+
+---
+
+### dns_lookup
+
+Look up DNS records for a domain.
+
+**Parameters:**
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| domain | string | Yes | Domain name (e.g., `example.com`) |
+
+**Response fields:**
+- `domain` - Domain name
+- `a` - A records (IPv4)
+- `aaaa` - AAAA records (IPv6)
+- `ns` - Nameserver records
+- `mx` - Mail exchange records
+- `txt` - TXT records
+- `cname` - CNAME records
+
+**Example:**
+```bash
+curl -X POST https://mcp.domainkits.com/mcp/dns \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"dns_lookup","arguments":{"domain":"google.com"}}}'
 ```
 
 ---
@@ -164,7 +194,7 @@ curl -X POST https://mcp.domainkits.com/mcp/ns-reverse \
 ## Limits
 
 - 10 requests per minute per IP
-- 5 domains per response
+- 5 domains per response (NRDS, NS Reverse)
 - NRDS data may have 24-48 hour delay
 
 ## Full Access
@@ -172,6 +202,8 @@ curl -X POST https://mcp.domainkits.com/mcp/ns-reverse \
 For complete results with advanced filters and export:
 - **NRDS**: [domainkits.com/search/new](https://domainkits.com/search/new)
 - **NS Reverse**: [domainkits.com/tools/ns-reverse](https://domainkits.com/tools/ns-reverse)
+- **WHOIS**: [domainkits.com/tools/whois](https://domainkits.com/tools/whois)
+- **DNS**: [domainkits.com/tools/dns](https://domainkits.com/tools/dns)
 
 ## About
 
@@ -193,4 +225,3 @@ This service complies with GDPR data minimization principles.
 ## License
 
 MIT
-EOF
