@@ -60,6 +60,12 @@ Edit `~/.cursor/mcp.json`:
 ```
 
 ---
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/ABTdomain/domainkits-mcp
+```
+
 
 ## Tools
 

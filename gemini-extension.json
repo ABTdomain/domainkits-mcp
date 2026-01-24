@@ -1,0 +1,17 @@
+{
+  "name": "domainkits",
+  "version": "1.0.0",
+  "description": "Domain intelligence tools - NS reverse lookup and newly registered domain search",
+  "mcpServers": {
+    "domainkits-ns-reverse": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/ns-reverse", "--transport", "http-first"]
+    },
+    "domainkits-nrds": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/nrds", "--transport", "http-first"]
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}
+
