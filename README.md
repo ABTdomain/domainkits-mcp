@@ -8,7 +8,6 @@ Domain intelligence tools through MCP-compatible clients.
 |----------|-------------|
 | `https://mcp.domainkits.com/mcp/nrds` | Newly Registered Domains Search |
 | `https://mcp.domainkits.com/mcp/ns-reverse` | NS Reverse Lookup |
-| `https://mcp.domainkits.com/mcp/whois` | WHOIS Lookup |
 
 ## Configuration
 
@@ -37,15 +36,6 @@ Edit config file:
         "--transport",
         "http-first"
       ]
-    },
-    "domainkits-whois": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.domainkits.com/mcp/whois",
-        "--transport",
-        "http-first"
-      ]
     }
   }
 }
@@ -64,10 +54,6 @@ Edit `~/.cursor/mcp.json`:
     "domainkits-ns-reverse": {
       "command": "npx",
       "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/ns-reverse"]
-    },
-    "domainkits-whois": {
-      "command": "npx",
-      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/whois"]
     }
   }
 }
@@ -121,38 +107,10 @@ curl -X POST https://mcp.domainkits.com/mcp/ns-reverse \
 
 ---
 
-### whois_lookup
-
-Look up WHOIS information for a domain.
-
-**Parameters:**
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| domain | string | Yes | Domain name (e.g., `example.com`) |
-
-**Response fields:**
-- `domain` - Domain name
-- `registrar` - Registrar name
-- `created` - Creation date
-- `expires` - Expiry date
-- `updated` - Last updated date
-- `status` - Domain status codes
-- `nameservers` - List of nameservers
-
-**Example:**
-```bash
-curl -X POST https://mcp.domainkits.com/mcp/whois \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"whois_lookup","arguments":{"domain":"google.com"}}}'
-```
-
----
-
 ## Limits
 
 - 10 requests per minute per IP
-- 5 domains per response (NRDS, NS Reverse)
+- 5 domains per response
 - NRDS data may have 24-48 hour delay
 
 ## Full Access
@@ -160,7 +118,6 @@ curl -X POST https://mcp.domainkits.com/mcp/whois \
 For complete results with advanced filters and export:
 - **NRDS**: [domainkits.com/search/new](https://domainkits.com/search/new)
 - **NS Reverse**: [domainkits.com/tools/ns-reverse](https://domainkits.com/tools/ns-reverse)
-- **WHOIS**: [domainkits.com/tools/whois](https://domainkits.com/tools/whois)
 
 ## About
 
@@ -168,16 +125,10 @@ For complete results with advanced filters and export:
 
 ## Privacy
 
-This service is designed with privacy in mind:
-- **IP addresses are anonymized** - Only the first two segments are logged (e.g., `192.168.x.x`)
-- **Search queries are anonymized** - Only first and last 2 characters are logged (e.g., `go***le`)
-- **Logs are retained for 7 days** and automatically deleted
-- **No personal data is collected** - No accounts, no cookies, no tracking
-- **No data is shared** with third parties
-
-For full privacy policy, visit [domainkits.com/privacy](https://domainkits.com/privacy)
-
-This service complies with GDPR data minimization principles.
+- IP addresses anonymized
+- Search queries anonymized
+- Logs retained 7 days
+- No personal data collected
 
 ## License
 
