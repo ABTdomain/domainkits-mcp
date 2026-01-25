@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.abtdomain/domainkits-mcp",
+  "name": "io.github.ABTdomain/domainkits-mcp",
   "description": "Domain intelligence tools - NS reverse lookup and newly registered domain search",
   "title": "DomainKits",
   "version": "1.0.0",
