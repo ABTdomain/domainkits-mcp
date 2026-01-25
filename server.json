@@ -1,20 +1,21 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.abtdomain/domainkits-mcp",
   "description": "Domain intelligence tools - NS reverse lookup and newly registered domain search",
+  "title": "DomainKits",
   "version": "1.0.0",
-  "remotes": [
-    {
-      "type": "sse",
-      "url": "https://mcp.domainkits.com/mcp/ns-reverse"
-    },
-    {
-      "type": "sse", 
-      "url": "https://mcp.domainkits.com/mcp/nrds"
-    }
-  ],
   "repository": {
     "url": "https://github.com/ABTdomain/domainkits-mcp",
     "source": "github"
-  }
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.domainkits.com/mcp/ns-reverse"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.domainkits.com/mcp/nrds"
+    }
+  ]
 }
