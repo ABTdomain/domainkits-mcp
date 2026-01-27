@@ -225,6 +225,25 @@ For complete results with advanced filters and export:
 - Logs retained 7 days
 - No personal data collected
 
+
+## Usage Policy
+
+**This API does not support corporate strategic intelligence gathering.**
+
+Queries targeting enterprise-grade domain management services (such as MarkMonitor, CSC, Safenames, BrandShelter, etc.) are blocked. These services are typically used by Fortune 500 companies, and we do not facilitate monitoring of their domain registration activities for competitive intelligence purposes.
+
+**Intended use cases:**
+- Domain investment research
+- Brand protection and trademark monitoring
+- Cybersecurity and phishing detection
+- Academic and market research
+
+**Not supported:**
+- Tracking corporate product launches via domain registrations
+- Competitive intelligence on specific enterprises
+- Monitoring M&A activities through domain analysis
+
+
 ## License
 
 MIT
