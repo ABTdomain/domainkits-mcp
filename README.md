@@ -7,6 +7,7 @@ Domain intelligence tools through MCP-compatible clients.
 | Endpoint | Description |
 |----------|-------------|
 | `https://mcp.domainkits.com/mcp/nrds` | Newly Registered Domains Search |
+| `https://mcp.domainkits.com/mcp/nrds/count` | Newly Registered Domains Count |
 | `https://mcp.domainkits.com/mcp/ns-reverse` | NS Reverse Lookup |
 
 ## Configuration
@@ -24,6 +25,15 @@ Edit config file:
       "args": [
         "mcp-remote",
         "https://mcp.domainkits.com/mcp/nrds",
+        "--transport",
+        "http-first"
+      ]
+    },
+    "domainkits-nrds-count": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.domainkits.com/mcp/nrds/count",
         "--transport",
         "http-first"
       ]
@@ -51,6 +61,10 @@ Edit `~/.cursor/mcp.json`:
       "command": "npx",
       "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/nrds"]
     },
+    "domainkits-nrds-count": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/nrds/count"]
+    },
     "domainkits-ns-reverse": {
       "command": "npx",
       "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/ns-reverse"]
@@ -60,12 +74,11 @@ Edit `~/.cursor/mcp.json`:
 ```
 
 ---
+
 ### Gemini CLI
-
 ```bash
-gemini extensions install https://github.com/ABTdomain/domainkits-mcp
+gemini extensions install https://github.com/AKBTdomain/domainkits-mcp
 ```
-
 
 ## Tools
 
@@ -77,16 +90,72 @@ Search for newly registered domains by keyword.
 
 | Name | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| keyword | string | Yes | - | Search term (a-z, 0-9, hyphen only, max 20 chars) |
-| days | integer | Yes | - | 1-7 |
+| keyword | string | Yes | - | Search term (a-z, 0-9, hyphen only, min 3 chars) |
+| days | integer | Yes | - | Search range in days (1-7) |
 | position | string | No | any | `start`, `end`, or `any` |
-| tld | string | No | all | Filter by TLD (e.g., `com`, `net`, `org`) |
+| tld | string | No | all | Filter by TLD (e.g., `com`, `net`) |
+| ns | string | No | all | Filter by nameserver (e.g., `ns1.google.com`) |
+| min_len | integer | No | - | Minimum domain prefix length |
+| max_len | integer | No | - | Maximum domain prefix length |
+| has_number | boolean | No | - | Only domains containing numbers |
+| has_hyphen | boolean | No | - | Only domains containing hyphens |
+| is_alpha | boolean | No | - | Only pure letter domains (a-z) |
+| is_digit | boolean | No | - | Only pure numeric domains (0-9) |
+| exclude_keywords | array | No | - | Exclude domains containing these keywords |
 
 **Example:**
 ```bash
 curl -X POST https://mcp.domainkits.com/mcp/nrds \
   -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_nrds","arguments":{"keyword":"ai","days":7,"position":"start","tld":"com"}}}'
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_nrds","arguments":{"keyword":"tech","days":7,"position":"start","tld":"com","is_alpha":true}}}'
+```
+
+**Response:**
+```json
+{
+  "total": 128,
+  "showing": 5,
+  "domains": [
+    {"domain": "techflow.com", "ns": "ns1.example.com"},
+    {"domain": "techbase.com", "ns": "ns2.example.com"}
+  ]
+}
+```
+
+---
+
+### count_nrds
+
+Count newly registered domains by keyword (without returning domain list).
+
+**Parameters:**
+
+| Name | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| keyword | string | Yes | - | Search term (a-z, 0-9, hyphen only, min 3 chars) |
+| days | integer | Yes | - | Search range in days (1-7) |
+| position | string | No | any | `start`, `end`, or `any` |
+| tld | string | No | all | Filter by TLD (e.g., `com`, `net`) |
+| ns | string | No | all | Filter by nameserver (e.g., `ns1.google.com`) |
+| min_len | integer | No | - | Minimum domain prefix length |
+| max_len | integer | No | - | Maximum domain prefix length |
+| has_number | boolean | No | - | Only domains containing numbers |
+| has_hyphen | boolean | No | - | Only domains containing hyphens |
+| is_alpha | boolean | No | - | Only pure letter domains (a-z) |
+| is_digit | boolean | No | - | Only pure numeric domains (0-9) |
+
+**Example:**
+```bash
+curl -X POST https://mcp.domainkits.com/mcp/nrds/count \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"count_nrds","arguments":{"keyword":"tech","days":7,"tld":"com"}}}'
+```
+
+**Response:**
+```json
+{
+  "total": 128
+}
 ```
 
 ---
@@ -100,15 +169,32 @@ Look up gTLD domains hosted on a specific nameserver.
 | Name | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
 | ns | string | Yes | - | Nameserver hostname (e.g., `ns1.google.com`) |
-| tld | string | No | all | Filter by TLD (e.g., `com`, `net`, `org`) |
+| tld | string | No | all | Filter by TLD (e.g., `com`, `net`) |
 | min_len | integer | No | - | Minimum domain prefix length |
 | max_len | integer | No | - | Maximum domain prefix length |
+| has_number | boolean | No | - | Only domains containing numbers |
+| has_hyphen | boolean | No | - | Only domains containing hyphens |
+| is_alpha | boolean | No | - | Only pure letter domains (a-z) |
+| is_digit | boolean | No | - | Only pure numeric domains (0-9) |
+| keyword | string | No | - | Filter domains containing this keyword |
+| exclude_keywords | array | No | - | Exclude domains containing these keywords |
 
 **Example:**
 ```bash
 curl -X POST https://mcp.domainkits.com/mcp/ns-reverse \
   -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_ns_reverse","arguments":{"ns":"ns1.google.com","tld":"com","min_len":4,"max_len":8}}}'
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_ns_reverse","arguments":{"ns":"ns1.google.com","tld":"com","is_alpha":true,"min_len":4,"max_len":8}}}'
+```
+
+**Response:**
+```json
+{
+  "ns": "ns1.google.com",
+  "total": 50000,
+  "matched": 1234,
+  "showing": 5,
+  "samples": ["example.com", "domain.com", "test.com"]
+}
 ```
 
 ---
@@ -122,6 +208,7 @@ curl -X POST https://mcp.domainkits.com/mcp/ns-reverse \
 ## Full Access
 
 For complete results with advanced filters and export:
+
 - **NRDS**: [domainkits.com/search/new](https://domainkits.com/search/new)
 - **NS Reverse**: [domainkits.com/tools/ns-reverse](https://domainkits.com/tools/ns-reverse)
 
