@@ -7,8 +7,8 @@ Domain intelligence tools through MCP-compatible clients.
 | Endpoint | Description |
 |----------|-------------|
 | `https://mcp.domainkits.com/mcp/nrds` | Newly Registered Domains Search |
-| `https://mcp.domainkits.com/mcp/nrds/count` | Newly Registered Domains Count |
 | `https://mcp.domainkits.com/mcp/ns-reverse` | NS Reverse Lookup |
+| `https://mcp.domainkits.com/mcp/count` | Domain Count by Type |
 
 ## Configuration
 
@@ -29,20 +29,20 @@ Edit config file:
         "http-first"
       ]
     },
-    "domainkits-nrds-count": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.domainkits.com/mcp/nrds/count",
-        "--transport",
-        "http-first"
-      ]
-    },
     "domainkits-ns-reverse": {
       "command": "npx",
       "args": [
         "mcp-remote",
         "https://mcp.domainkits.com/mcp/ns-reverse",
+        "--transport",
+        "http-first"
+      ]
+    },
+    "domainkits-count": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.domainkits.com/mcp/count",
         "--transport",
         "http-first"
       ]
@@ -61,13 +61,13 @@ Edit `~/.cursor/mcp.json`:
       "command": "npx",
       "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/nrds"]
     },
-    "domainkits-nrds-count": {
-      "command": "npx",
-      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/nrds/count"]
-    },
     "domainkits-ns-reverse": {
       "command": "npx",
       "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/ns-reverse"]
+    },
+    "domainkits-count": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/count"]
     }
   }
 }
@@ -124,42 +124,6 @@ curl -X POST https://mcp.domainkits.com/mcp/nrds \
 
 ---
 
-### count_nrds
-
-Count newly registered domains by keyword (without returning domain list).
-
-**Parameters:**
-
-| Name | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| keyword | string | Yes | - | Search term (a-z, 0-9, hyphen only, min 3 chars) |
-| days | integer | Yes | - | Search range in days (1-7) |
-| position | string | No | any | `start`, `end`, or `any` |
-| tld | string | No | all | Filter by TLD (e.g., `com`, `net`) |
-| ns | string | No | all | Filter by nameserver (e.g., `ns1.google.com`) |
-| min_len | integer | No | - | Minimum domain prefix length |
-| max_len | integer | No | - | Maximum domain prefix length |
-| has_number | boolean | No | - | Only domains containing numbers |
-| has_hyphen | boolean | No | - | Only domains containing hyphens |
-| is_alpha | boolean | No | - | Only pure letter domains (a-z) |
-| is_digit | boolean | No | - | Only pure numeric domains (0-9) |
-
-**Example:**
-```bash
-curl -X POST https://mcp.domainkits.com/mcp/nrds/count \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"count_nrds","arguments":{"keyword":"tech","days":7,"tld":"com"}}}'
-```
-
-**Response:**
-```json
-{
-  "total": 128
-}
-```
-
----
-
 ### search_ns_reverse
 
 Look up gTLD domains hosted on a specific nameserver.
@@ -194,6 +158,44 @@ curl -X POST https://mcp.domainkits.com/mcp/ns-reverse \
   "matched": 1234,
   "showing": 5,
   "samples": ["example.com", "domain.com", "test.com"]
+}
+```
+
+---
+
+### count_domains
+
+Count domains by type with filters. Supports multiple data sources.
+
+**Parameters:**
+
+| Name | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| type | string | Yes | - | Data source: `nrds`, `expired`, `aged` |
+| keyword | string | Yes* | - | Search term (min 3 chars, required for nrds) |
+| days | integer | Yes* | - | Search range in days (1-7, required for nrds) |
+| position | string | No | any | `start`, `end`, or `any` |
+| tld | string | No | all | Filter by TLD (e.g., `com`, `net`) |
+| ns | string | No | all | Filter by nameserver |
+| min_len | integer | No | - | Minimum domain prefix length |
+| max_len | integer | No | - | Maximum domain prefix length |
+| has_number | boolean | No | - | Only domains containing numbers |
+| has_hyphen | boolean | No | - | Only domains containing hyphens |
+| is_alpha | boolean | No | - | Only pure letter domains (a-z) |
+| is_digit | boolean | No | - | Only pure numeric domains (0-9) |
+
+**Example:**
+```bash
+curl -X POST https://mcp.domainkits.com/mcp/count \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"count_domains","arguments":{"type":"nrds","keyword":"tech","days":7,"tld":"com"}}}'
+```
+
+**Response:**
+```json
+{
+  "type": "nrds",
+  "total": 128
 }
 ```
 
