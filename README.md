@@ -94,7 +94,6 @@ Search for newly registered domains by keyword.
 | days | integer | Yes | - | Search range in days (1-7) |
 | position | string | No | any | `start`, `end`, or `any` |
 | tld | string | No | all | Filter by TLD (e.g., `com`, `net`) |
-| ns | string | No | all | Filter by nameserver (e.g., `ns1.google.com`) |
 | min_len | integer | No | - | Minimum domain prefix length |
 | max_len | integer | No | - | Maximum domain prefix length |
 | has_number | boolean | No | - | Only domains containing numbers |
@@ -116,8 +115,8 @@ curl -X POST https://mcp.domainkits.com/mcp/nrds \
   "total": 128,
   "showing": 5,
   "domains": [
-    {"domain": "techflow.com", "ns": "ns1.example.com"},
-    {"domain": "techbase.com", "ns": "ns2.example.com"}
+    {"domain": "techflow.com"},
+    {"domain": "techbase.com"}
   ]
 }
 ```
@@ -176,7 +175,6 @@ Count domains by type with filters. Supports multiple data sources.
 | days | integer | Yes* | - | Search range in days (1-7, required for nrds) |
 | position | string | No | any | `start`, `end`, or `any` |
 | tld | string | No | all | Filter by TLD (e.g., `com`, `net`) |
-| ns | string | No | all | Filter by nameserver |
 | min_len | integer | No | - | Minimum domain prefix length |
 | max_len | integer | No | - | Maximum domain prefix length |
 | has_number | boolean | No | - | Only domains containing numbers |
@@ -225,12 +223,9 @@ For complete results with advanced filters and export:
 - Logs retained 7 days
 - No personal data collected
 
-
 ## Usage Policy
 
-**This API does not support corporate strategic intelligence gathering.**
-
-Queries targeting enterprise-grade domain management services (such as MarkMonitor, CSC, Safenames, BrandShelter, etc.) are blocked. These services are typically used by Fortune 500 companies, and we do not facilitate monitoring of their domain registration activities for competitive intelligence purposes.
+This API is designed for legitimate domain research purposes.
 
 **Intended use cases:**
 - Domain investment research
@@ -238,11 +233,10 @@ Queries targeting enterprise-grade domain management services (such as MarkMonit
 - Cybersecurity and phishing detection
 - Academic and market research
 
-**Not supported:**
-- Tracking corporate product launches via domain registrations
-- Competitive intelligence on specific enterprises
-- Monitoring M&A activities through domain analysis
-
+**Privacy protection measures:**
+- NRDS results do not include nameserver information
+- Enterprise-grade nameservers are blocked from NS Reverse queries
+- No support for tracking specific organizations' domain activities
 
 ## License
 
