@@ -1,243 +1,170 @@
-# DomainKits MCP Server
+# DomainKits MCP
 
-Domain intelligence tools through MCP-compatible clients.
+A Model Context Protocol (MCP) server that turns AI assistants into domain investment experts. Search, analyze, and discover domain names with real-time market data.
 
-## Endpoints
+## What is this?
 
-| Endpoint | Description |
-|----------|-------------|
-| `https://mcp.domainkits.com/mcp/nrds` | Newly Registered Domains Search |
-| `https://mcp.domainkits.com/mcp/ns-reverse` | NS Reverse Lookup |
-| `https://mcp.domainkits.com/mcp/count` | Domain Count by Type |
+DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain intelligence tools. Instead of guessing domain availability, the AI can actually check it. Instead of generic naming suggestions, it validates ideas against real market data.
 
-## Configuration
+## Features
 
-### Claude Desktop
+### Search Tools
+| Tool | Description |
+|------|-------------|
+| `nrds` | Monitor newly registered domains, spot viral trends |
+| `aged` | Find established domains with 5-20+ years history |
+| `expired` | Discover domains entering deletion cycle |
+| `deleted` | Search just-dropped domains available for standard registration |
+| `active` | Scan live websites and acquisition targets |
+| `ns_reverse` | Reverse lookup by nameserver |
 
-Edit config file:
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+### Query Tools
+| Tool | Description |
+|------|-------------|
+| `dns` | Query DNS records (A, MX, NS, TXT, etc.) |
+| `whois` | Get registration details and dates |
+| `safety` | Check domain reputation via Google Safe Browsing |
+| `tld_check` | Check keyword availability across all TLDs |
+| `available` | Instant availability check with pricing |
+
+### Trend Tools
+| Tool | Description |
+|------|-------------|
+| `tld_trends` | Historical registration trends by TLD |
+| `keywords_trends` | Hot and emerging keywords in domain registrations |
+| `tld_rank` | TLD rankings by registration volume |
+| `price` | Registration and renewal prices by TLD |
+
+### Bulk Tools
+| Tool | Description |
+|------|-------------|
+| `bulk_tld` | Check keyword popularity across TLDs |
+| `bulk_available` | Batch availability check with pricing |
+
+### Workflow Guides
+| Tool | Description |
+|------|-------------|
+| `suggest` | AI-guided domain name brainstorming |
+| `similar` | Find alternatives when a domain is taken |
+| `plan_b` | Orchestrated search across deleted/expired/aged |
+| `analyze` | Comprehensive domain audit |
+
+### Memory (GDPR Compliant)
+| Tool | Description |
+|------|-------------|
+| `get_preferences` | Retrieve saved user preferences |
+| `set_preferences` | Save preferences (requires explicit consent) |
+| `delete_preferences` | Delete all stored data |
+
+## Quick Start
+
+### 1. Get an API Key
+
+Sign up at [domainkits.com](https://domainkits.com) to get your API key.
+
+### 2. Configure Your MCP Client
+
+Add to your MCP client configuration:
 ```json
 {
   "mcpServers": {
-    "domainkits-nrds": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.domainkits.com/mcp/nrds",
-        "--transport",
-        "http-first"
-      ]
-    },
-    "domainkits-ns-reverse": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.domainkits.com/mcp/ns-reverse",
-        "--transport",
-        "http-first"
-      ]
-    },
-    "domainkits-count": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.domainkits.com/mcp/count",
-        "--transport",
-        "http-first"
-      ]
+    "domainkits": {
+      "url": "https://api.domainkits.com/v1/mcp",
+      "headers": {
+        "X-API-Key": "your-api-key-here"
+      }
     }
   }
 }
 ```
 
-### Cursor
+### 3. Start Using
 
-Edit `~/.cursor/mcp.json`:
-```json
-{
-  "mcpServers": {
-    "domainkits-nrds": {
-      "command": "npx",
-      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/nrds"]
-    },
-    "domainkits-ns-reverse": {
-      "command": "npx",
-      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/ns-reverse"]
-    },
-    "domainkits-count": {
-      "command": "npx",
-      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/count"]
-    }
-  }
-}
+Ask your AI assistant:
+- "Find me a short .com domain for an AI startup"
+- "What domains with 'crypto' are expiring today?"
+- "Check if awesomeapp.com is available"
+- "Analyze the domain stripe.com"
+
+## Usage Examples
+
+### Find Available Domains
+```
+User: Help me find a domain for my vegan skincare brand
+
+AI: [calls bulk_available with generated ideas]
+    Found 3 available options:
+    - veganglow.io ($39/year) - Register Now
+    - purevegan.co ($29/year) - Register Now  
+    - skincarelab.app ($14/year) - Register Now
 ```
 
----
+### Monitor Trends
+```
+User: What keywords are trending in domain registrations?
 
-### Gemini CLI
+AI: [calls keywords_trends type="emerging"]
+    Top emerging keywords this week:
+    1. "gpt" - 340% increase
+    2. "llm" - 280% increase
+    3. "agent" - 195% increase
+```
+
+### Domain Analysis
+```
+User: Analyze example.com for me
+
+AI: [calls whois, dns, safety, tld_check]
+    Domain Profile:
+    - Registered: 1995 (29 years old)
+    - Registrar: ICANN
+    - Status: Active with MX records
+    - Safety: Clean
+    - Brand Protection: .net/.org also taken
+```
+
+## Rate Limits
+
+| Tier | Requests/Min | Daily Limit |
+|------|--------------|-------------|
+| Guest | 5 | 50 |
+| Member | 20 | 500 |
+| Premium | 60 | 2000 |
+| Platinum | Unlimited | Unlimited |
+
+## Memory & Privacy
+
+DomainKits supports optional memory to remember your preferences:
+- Preferred TLDs
+- Budget range
+- Naming style
+- Industry
+
+**GDPR Compliant:**
+- Memory is OFF by default
+- Requires explicit user consent to enable
+- Users can delete all data anytime via `delete_preferences`
+
+## Self-Hosting
+
+Want to run your own instance? The MCP server code is available in this repository.
 ```bash
-gemini extensions install https://github.com/AKBTdomain/domainkits-mcp
+git clone https://github.com/ABTdomain/domainkits-mcp.git
+cd domainkits-mcp
+go build -o mcp-server .
+./mcp-server
 ```
 
-## Tools
+Requires a gateway service for domain data (not included).
 
-### search_nrds
+## Links
 
-Search for newly registered domains by keyword.
-
-**Parameters:**
-
-| Name | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| keyword | string | Yes | - | Search term (a-z, 0-9, hyphen only, min 3 chars) |
-| days | integer | Yes | - | Search range in days (1-7) |
-| position | string | No | any | `start`, `end`, or `any` |
-| tld | string | No | all | Filter by TLD (e.g., `com`, `net`) |
-| min_len | integer | No | - | Minimum domain prefix length |
-| max_len | integer | No | - | Maximum domain prefix length |
-| has_number | boolean | No | - | Only domains containing numbers |
-| has_hyphen | boolean | No | - | Only domains containing hyphens |
-| is_alpha | boolean | No | - | Only pure letter domains (a-z) |
-| is_digit | boolean | No | - | Only pure numeric domains (0-9) |
-| exclude_keywords | array | No | - | Exclude domains containing these keywords |
-
-**Example:**
-```bash
-curl -X POST https://mcp.domainkits.com/mcp/nrds \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_nrds","arguments":{"keyword":"tech","days":7,"position":"start","tld":"com","is_alpha":true}}}'
-```
-
-**Response:**
-```json
-{
-  "total": 128,
-  "showing": 5,
-  "domains": [
-    {"domain": "techflow.com"},
-    {"domain": "techbase.com"}
-  ]
-}
-```
-
----
-
-### search_ns_reverse
-
-Look up gTLD domains hosted on a specific nameserver.
-
-**Parameters:**
-
-| Name | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| ns | string | Yes | - | Nameserver hostname (e.g., `ns1.google.com`) |
-| tld | string | No | all | Filter by TLD (e.g., `com`, `net`) |
-| min_len | integer | No | - | Minimum domain prefix length |
-| max_len | integer | No | - | Maximum domain prefix length |
-| has_number | boolean | No | - | Only domains containing numbers |
-| has_hyphen | boolean | No | - | Only domains containing hyphens |
-| is_alpha | boolean | No | - | Only pure letter domains (a-z) |
-| is_digit | boolean | No | - | Only pure numeric domains (0-9) |
-| keyword | string | No | - | Filter domains containing this keyword |
-| exclude_keywords | array | No | - | Exclude domains containing these keywords |
-
-**Example:**
-```bash
-curl -X POST https://mcp.domainkits.com/mcp/ns-reverse \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_ns_reverse","arguments":{"ns":"ns1.google.com","tld":"com","is_alpha":true,"min_len":4,"max_len":8}}}'
-```
-
-**Response:**
-```json
-{
-  "ns": "ns1.google.com",
-  "total": 50000,
-  "matched": 1234,
-  "showing": 5,
-  "samples": ["example.com", "domain.com", "test.com"]
-}
-```
-
----
-
-### count_domains
-
-Count domains by type with filters. Supports multiple data sources.
-
-**Parameters:**
-
-| Name | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| type | string | Yes | - | Data source: `nrds`, `expired`, `aged` |
-| keyword | string | Yes* | - | Search term (min 3 chars, required for nrds) |
-| days | integer | Yes* | - | Search range in days (1-7, required for nrds) |
-| position | string | No | any | `start`, `end`, or `any` |
-| tld | string | No | all | Filter by TLD (e.g., `com`, `net`) |
-| min_len | integer | No | - | Minimum domain prefix length |
-| max_len | integer | No | - | Maximum domain prefix length |
-| has_number | boolean | No | - | Only domains containing numbers |
-| has_hyphen | boolean | No | - | Only domains containing hyphens |
-| is_alpha | boolean | No | - | Only pure letter domains (a-z) |
-| is_digit | boolean | No | - | Only pure numeric domains (0-9) |
-
-**Example:**
-```bash
-curl -X POST https://mcp.domainkits.com/mcp/count \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"count_domains","arguments":{"type":"nrds","keyword":"tech","days":7,"tld":"com"}}}'
-```
-
-**Response:**
-```json
-{
-  "type": "nrds",
-  "total": 128
-}
-```
-
----
-
-## Limits
-
-- 10 requests per minute per IP
-- 5 domains per response
-- NRDS data may have 24-48 hour delay
-
-## Full Access
-
-For complete results with advanced filters and export:
-
-- **NRDS**: [domainkits.com/search/new](https://domainkits.com/search/new)
-- **NS Reverse**: [domainkits.com/tools/ns-reverse](https://domainkits.com/tools/ns-reverse)
-
-## About
-
-[DomainKits](https://domainkits.com) - Domain intelligence tools for investors, brand managers, and researchers.
-
-## Privacy
-
-- IP addresses anonymized
-- Search queries anonymized
-- Logs retained 7 days
-- No personal data collected
-
-## Usage Policy
-
-This API is designed for legitimate domain research purposes.
-
-**Intended use cases:**
-- Domain investment research
-- Brand protection and trademark monitoring
-- Cybersecurity and phishing detection
-- Academic and market research
-
-**Privacy protection measures:**
-- NRDS results do not include nameserver information
-- Enterprise-grade nameservers are blocked from NS Reverse queries
-- No support for tracking specific organizations' domain activities
+- Website: [domainkits.com](https://domainkits.com)
+- API Endpoint: `https://api.domainkits.com/v1/mcp`
+- Support: info@domainkits.com
 
 ## License
 
-MIT
+This repository contains the MCP server interface only. The underlying domain data and gateway services are proprietary.
+
+For commercial use and API access, visit [domainkits.com](https://domainkits.com).

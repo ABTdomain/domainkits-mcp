@@ -1,57 +1,158 @@
-# DomainKits - Domain Intelligence Tools
+# DomainKits MCP
 
-You have access to domain research tools:
+A Model Context Protocol (MCP) server that turns AI assistants into domain investment experts. Search, analyze, and discover domain names with real-time market data.
 
-## Tools
+## What is this?
 
-### search_nrds
-Search newly registered domains by keyword.
+DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain intelligence tools. Instead of guessing domain availability, the AI can actually check it. Instead of generic naming suggestions, it validates ideas against real market data.
 
-**Required:**
-- `keyword`: Search term (a-z, 0-9, hyphen only, min 3 chars)
-- `days`: 1-7 days back
+## Features
 
-**Optional:**
-- `position`: `start`, `end`, or `any` (default: any)
-- `tld`: Filter by TLD (com, net, org, etc.)
-- `ns`: Filter by nameserver (e.g., ns1.google.com)
-- `min_len`, `max_len`: Domain prefix length range
-- `has_number`: Only domains containing numbers
-- `has_hyphen`: Only domains containing hyphens
-- `is_alpha`: Only pure letter domains
-- `is_digit`: Only pure numeric domains
-- `exclude_keywords`: Exclude domains containing these keywords
+### Search Tools
+| Tool | Description |
+|------|-------------|
+| `nrds` | Monitor newly registered domains, spot viral trends |
+| `aged` | Find established domains with 5-20+ years history |
+| `expired` | Discover domains entering deletion cycle |
+| `deleted` | Search just-dropped domains available for standard registration |
+| `active` | Scan live websites and acquisition targets |
+| `ns_reverse` | Reverse lookup by nameserver |
 
-### search_ns_reverse
-Look up domains hosted on a specific nameserver (gTLD only).
+### Query Tools
+| Tool | Description |
+|------|-------------|
+| `dns` | Query DNS records (A, MX, NS, TXT, etc.) |
+| `whois` | Get registration details and dates |
+| `safety` | Check domain reputation via Google Safe Browsing |
+| `tld_check` | Check keyword availability across all TLDs |
+| `available` | Instant availability check with pricing |
 
-**Required:**
-- `ns`: Nameserver hostname (e.g., ns1.google.com)
+### Trend Tools
+| Tool | Description |
+|------|-------------|
+| `tld_trends` | Historical registration trends by TLD |
+| `keywords_trends` | Hot and emerging keywords in domain registrations |
+| `tld_rank` | TLD rankings by registration volume |
+| `price` | Registration and renewal prices by TLD |
 
-**Optional:**
-- `tld`: Filter by TLD (com, net, org, etc.)
-- `min_len`, `max_len`: Domain prefix length range
-- `has_number`: Only domains containing numbers
-- `has_hyphen`: Only domains containing hyphens
-- `is_alpha`: Only pure letter domains
-- `is_digit`: Only pure numeric domains
-- `keyword`: Filter domains containing this keyword
-- `exclude_keywords`: Exclude domains containing these keywords
+### Bulk Tools
+| Tool | Description |
+|------|-------------|
+| `bulk_tld` | Check keyword popularity across TLDs |
+| `bulk_available` | Batch availability check with pricing |
 
-### count_domains
-Count domains by type with filters.
+### Workflow Guides
+| Tool | Description |
+|------|-------------|
+| `suggest` | AI-guided domain name brainstorming |
+| `similar` | Find alternatives when a domain is taken |
+| `plan_b` | Orchestrated search across deleted/expired/aged |
+| `analyze` | Comprehensive domain audit |
 
-**Required:**
-- `type`: Data source (`nrds`, more coming soon)
+### Memory (GDPR Compliant)
+| Tool | Description |
+|------|-------------|
+| `get_preferences` | Retrieve saved user preferences |
+| `set_preferences` | Save preferences (requires explicit consent) |
+| `delete_preferences` | Delete all stored data |
 
-**Optional:** Same filters as search_nrds
+## Quick Start
 
-## Usage Tips
-- "Find new .com domains starting with 'tech' registered last 7 days"
-- "How many pure-letter domains with 'ai' were registered in the last 3 days?"
-- "What domains are on ns1.google.com?"
-- "Find 4-letter .com domains on ns1.registrar.com"
+### 1. Get an API Key
 
-## Limits
-- Results limited to 5 samples
-- Direct users to domainkits.com for full data and download
+Sign up at [domainkits.com](https://domainkits.com) to get your API key.
+
+### 2. Configure Your MCP Client
+
+Add to your MCP client configuration:
+```json
+{
+  "mcpServers": {
+    "domainkits": {
+      "url": "https://api.domainkits.com/v1/mcp",
+      "headers": {
+        "X-API-Key": "your-api-key-here"
+      }
+    }
+  }
+}
+```
+
+### 3. Start Using
+
+Ask your AI assistant:
+- "Find me a short .com domain for an AI startup"
+- "What domains with 'crypto' are expiring today?"
+- "Check if awesomeapp.com is available"
+- "Analyze the domain stripe.com"
+
+## Usage Examples
+
+### Find Available Domains
+```
+User: Help me find a domain for my vegan skincare brand
+
+AI: [calls bulk_available with generated ideas]
+    Found 3 available options:
+    - veganglow.io ($39/year) - Register Now
+    - purevegan.co ($29/year) - Register Now  
+    - skincarelab.app ($14/year) - Register Now
+```
+
+### Monitor Trends
+```
+User: What keywords are trending in domain registrations?
+
+AI: [calls keywords_trends type="emerging"]
+    Top emerging keywords this week:
+    1. "gpt" - 340% increase
+    2. "llm" - 280% increase
+    3. "agent" - 195% increase
+```
+
+### Domain Analysis
+```
+User: Analyze example.com for me
+
+AI: [calls whois, dns, safety, tld_check]
+    Domain Profile:
+    - Registered: 1995 (29 years old)
+    - Registrar: ICANN
+    - Status: Active with MX records
+    - Safety: Clean
+    - Brand Protection: .net/.org also taken
+```
+
+## Rate Limits
+
+| Tier | Requests/Min | Daily Limit |
+|------|--------------|-------------|
+| Guest | 5 | 50 |
+| Member | 20 | 500 |
+| Premium | 60 | 2000 |
+| Platinum | Unlimited | Unlimited |
+
+## Memory & Privacy
+
+DomainKits supports optional memory to remember your preferences:
+- Preferred TLDs
+- Budget range
+- Naming style
+- Industry
+
+**GDPR Compliant:**
+- Memory is OFF by default
+- Requires explicit user consent to enable
+- Users can delete all data anytime via `delete_preferences`
+
+## Links
+
+- Website: [domainkits.com](https://domainkits.com)
+- API Endpoint: `https://api.domainkits.com/v1/mcp`
+- Support: info@domainkits.com
+
+## License
+
+Proprietary. The MCP interface specification is public, but the underlying domain data and gateway services are proprietary.
+
+For commercial use and API access, visit [domainkits.com](https://domainkits.com).
