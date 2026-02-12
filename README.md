@@ -4,7 +4,7 @@ A Model Context Protocol (MCP) server that turns AI assistants into domain inves
 
 ## What is this?
 
-DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain intelligence tools. Instead of guessing domain availability, the AI can actually check it. Instead of generic naming suggestions, it validates ideas against real market data.
+DomainKits MCP connects AI assistants (Claude, etc.) to professional domain intelligence tools. Instead of guessing domain availability, the AI can actually check it. Instead of generic naming suggestions, it validates ideas against real market data.
 
 ## Features
 
