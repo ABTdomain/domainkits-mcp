@@ -1,17 +1,17 @@
 {
   "name": "domainkits",
-  "version": "1.0.0",
-  "description": "Domain intelligence tools - NS reverse lookup and newly registered domain search",
+  "version": "2.0.0",
+  "description": "Domain intelligence MCP - Search, analyze, and discover domain names with real-time market data",
   "mcpServers": {
-    "domainkits-ns-reverse": {
+    "domainkits": {
       "command": "npx",
-      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/ns-reverse", "--transport", "http-first"]
-    },
-    "domainkits-nrds": {
-      "command": "npx",
-      "args": ["mcp-remote", "https://mcp.domainkits.com/mcp/nrds", "--transport", "http-first"]
+      "args": ["mcp-remote", "https://api.domainkits.com/v1/mcp", "--transport", "http-first", "--header", "X-API-Key:YOUR_API_KEY"]
     }
   },
-  "contextFileName": "GEMINI.md"
+  "contextFileName": "DOMAINKITS.md",
+  "auth": {
+    "type": "api_key",
+    "required": false,
+    "instructions": "Works without API key with limited access. Get your API key at https://domainkits.com for higher rate limits, more results, and memory features."
+  }
 }
-

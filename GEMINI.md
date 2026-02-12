@@ -58,13 +58,23 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 
 ## Quick Start
 
-### 1. Get an API Key
-
-Sign up at [domainkits.com](https://domainkits.com) to get your API key.
-
-### 2. Configure Your MCP Client
+### Option A: Without API Key (Limited Access)
 
 Add to your MCP client configuration:
+```json
+{
+  "mcpServers": {
+    "domainkits": {
+      "url": "https://api.domainkits.com/v1/mcp"
+    }
+  }
+}
+```
+
+### Option B: With API Key (Full Access)
+
+1. Sign up at [domainkits.com](https://domainkits.com) to get your API key
+2. Add to your MCP client configuration:
 ```json
 {
   "mcpServers": {
@@ -77,6 +87,12 @@ Add to your MCP client configuration:
   }
 }
 ```
+
+With API key you get:
+- Higher rate limits
+- More results per search
+- Memory features (save preferences)
+- Priority support
 
 ### 3. Start Using
 
