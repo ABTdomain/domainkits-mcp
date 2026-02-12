@@ -4,7 +4,7 @@ A Model Context Protocol (MCP) server that turns AI assistants into domain inves
 
 ## What is this?
 
-DomainKits MCP connects AI assistants (Claude, etc.) to professional domain intelligence tools. Instead of guessing domain availability, the AI can actually check it. Instead of generic naming suggestions, it validates ideas against real market data.
+DomainKits MCP connects AI assistants (Claude, GPT, Gemini, etc.) to professional domain intelligence tools. Instead of guessing domain availability, the AI can actually check it. Instead of generic naming suggestions, it validates ideas against real market data.
 
 ## Features
 
@@ -58,9 +58,9 @@ DomainKits MCP connects AI assistants (Claude, etc.) to professional domain inte
 
 ## Quick Start
 
-### Option A: Without API Key (Limited Access)
+### Gemini CLI
 
-Add to your MCP client configuration:
+Edit `~/.gemini/settings.json`:
 ```json
 {
   "mcpServers": {
@@ -71,10 +71,7 @@ Add to your MCP client configuration:
 }
 ```
 
-### Option B: With API Key (Full Access)
-
-1. Sign up at [domainkits.com](https://domainkits.com) to get your API key
-2. Add to your MCP client configuration:
+With API key (for higher limits):
 ```json
 {
   "mcpServers": {
@@ -88,56 +85,52 @@ Add to your MCP client configuration:
 }
 ```
 
-With API key you get:
+### Claude Desktop
+
+Add to your Claude Desktop config:
+```json
+{
+  "mcpServers": {
+    "domainkits": {
+      "url": "https://api.domainkits.com/v1/mcp"
+    }
+  }
+}
+```
+
+### Other MCP Clients
+
+Use endpoint: `https://api.domainkits.com/v1/mcp`
+
+Optional header: `X-API-Key: your-api-key-here`
+
+---
+
+**Free tier (no API key):**
+- 5 requests/minute
+- 50 requests/day
+- Basic search and query tools
+
+**With API key:**
 - Higher rate limits
 - More results per search
 - Memory features (save preferences)
-- Priority support
+
+Get your API key at [domainkits.com](https://domainkits.com)
+
+## Examples
 ```
+"Find me a short .com domain for an AI startup"
 
-### 3. Start Using
+"What domains with 'crypto' are expiring today?"
 
-Ask your AI assistant:
-- "Find me a short .com domain for an AI startup"
-- "What domains with 'crypto' are expiring today?"
-- "Check if awesomeapp.com is available"
-- "Analyze the domain stripe.com"
+"Check if awesomeapp.com is available"
 
-## Usage Examples
+"Analyze the domain stripe.com"
 
-### Find Available Domains
-```
-User: Help me find a domain for my vegan skincare brand
+"Show me trending keywords in domain registrations"
 
-AI: [calls bulk_available with generated ideas]
-    Found 3 available options:
-    - veganglow.io ($39/year) - Register Now
-    - purevegan.co ($29/year) - Register Now  
-    - skincarelab.app ($14/year) - Register Now
-```
-
-### Monitor Trends
-```
-User: What keywords are trending in domain registrations?
-
-AI: [calls keywords_trends type="emerging"]
-    Top emerging keywords this week:
-    1. "gpt" - 340% increase
-    2. "llm" - 280% increase
-    3. "agent" - 195% increase
-```
-
-### Domain Analysis
-```
-User: Analyze example.com for me
-
-AI: [calls whois, dns, safety, tld_check]
-    Domain Profile:
-    - Registered: 1995 (29 years old)
-    - Registrar: ICANN
-    - Status: Active with MX records
-    - Safety: Clean
-    - Brand Protection: .net/.org also taken
+"Find 4-letter .com domains registered this week"
 ```
 
 ## Rate Limits
@@ -162,26 +155,15 @@ DomainKits supports optional memory to remember your preferences:
 - Requires explicit user consent to enable
 - Users can delete all data anytime via `delete_preferences`
 
-## Self-Hosting
-
-Want to run your own instance? The MCP server code is available in this repository.
-```bash
-git clone https://github.com/ABTdomain/domainkits-mcp.git
-cd domainkits-mcp
-go build -o mcp-server .
-./mcp-server
-```
-
-Requires a gateway service for domain data (not included).
-
 ## Links
 
 - Website: [domainkits.com](https://domainkits.com)
 - API Endpoint: `https://api.domainkits.com/v1/mcp`
+- GitHub: [github.com/ABTdomain/domainkits-mcp](https://github.com/ABTdomain/domainkits-mcp)
 - Support: info@domainkits.com
 
 ## License
 
-This repository contains the MCP server interface only. The underlying domain data and gateway services are proprietary.
+Proprietary. The MCP interface specification is public, but the underlying domain data and gateway services are proprietary.
 
 For commercial use and API access, visit [domainkits.com](https://domainkits.com).
