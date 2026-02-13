@@ -1,6 +1,6 @@
 # DomainKits MCP
 
-A Model Context Protocol (MCP) server that turns AI assistants into domain investment experts. Search, analyze, and discover domain names with real-time market data.
+The domain agent framework for AI assistants. DomainKits MCP combines domain intelligence tools with built-in industry expertise — turning Claude, GPT, Gemini, and other AI assistants into domain agents that can search, analyze, and act on market data through natural conversation.
 
 ## What is this?
 
