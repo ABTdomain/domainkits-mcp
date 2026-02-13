@@ -4,7 +4,7 @@ A Model Context Protocol (MCP) server that turns AI assistants into domain inves
 
 ## What is this?
 
-DomainKits MCP connects AI assistants (Claude, GPT, Gemini, etc.) to professional domain intelligence tools. Instead of guessing domain availability, the AI can actually check it. Instead of generic naming suggestions, it validates ideas against real market data.
+DomainKits MCP is more than an API — it combines domain intelligence tools with built-in expertise, turning your AI into a domain agent that knows what to look for, how to analyze it, and when to act.
 
 ## Features
 
@@ -157,7 +157,7 @@ DomainKits supports optional memory to remember your preferences:
 
 ## Links
 
-- Website: [domainkits.com](https://domainkits.com)
+- Website: [domainkits.com](https://domainkits.com/mcp)
 - API Endpoint: `https://api.domainkits.com/v1/mcp`
 - GitHub: [github.com/ABTdomain/domainkits-mcp](https://github.com/ABTdomain/domainkits-mcp)
 - Support: info@domainkits.com
