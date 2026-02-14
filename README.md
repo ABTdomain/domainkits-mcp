@@ -84,15 +84,22 @@ With API key (for higher limits):
   }
 }
 ```
-
 ### Claude Desktop
 
-Add to your Claude Desktop config:
+Edit your config file:
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 ```json
 {
   "mcpServers": {
     "domainkits": {
-      "url": "https://api.domainkits.com/v1/mcp"
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://api.domainkits.com/v1/mcp",
+        "--transport",
+        "http-first"
+      ]
     }
   }
 }
