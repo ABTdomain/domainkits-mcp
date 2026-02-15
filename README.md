@@ -204,12 +204,10 @@ Optional header: `X-API-Key: your-api-key-here`
 
 ## Access Tiers
 
-| Tier | Daily Limit | Features |
-|------|-------------|----------|
-| **Guest** | ~10 requests | Most tools, 1 page results, enough for 3-5 complete queries |
-| **Member** (free) | 30-50 requests | All tools, 3 pages, memory features |
-| **Premium** | 500 requests | Full depth, 10 pages, priority support |
-| **Platinum** | Unlimited | No limits |
+- **Guest** — No account needed. Most tools available with ~10 requests/day per category. Good for trying out.
+- **Member** (free) — All tools including SEO analysis. 30-50 requests/day. Memory features enabled.
+- **Premium** — 500 requests/day, deep search
+- **Platinum** — Unlimited requests. No restrictions.
 
 Get your API key at [domainkits.com](https://domainkits.com)
 
