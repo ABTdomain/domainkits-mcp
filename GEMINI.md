@@ -17,6 +17,7 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 | `deleted` | Search just-dropped domains available for standard registration |
 | `active` | Scan live websites and acquisition targets |
 | `ns_reverse` | Reverse lookup by nameserver |
+| `unregistered_ai` | Find unregistered short .ai domains (3-letter, CVCV, VCVC, CCVV patterns) |
 
 ### Query Tools
 | Tool | Description |
@@ -41,6 +42,7 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 | `bulk_tld` | Check keyword popularity across TLDs |
 | `bulk_available` | Batch availability check with pricing |
 
+
 ### Workflow Guides
 | Tool | Description |
 |------|-------------|
@@ -48,6 +50,9 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 | `similar` | Find alternatives when a domain is taken |
 | `plan_b` | Orchestrated search across deleted/expired/aged |
 | `analyze` | Comprehensive domain audit |
+| `brand_match` | Brand association risk detection |
+| `expired_analysis` | In-depth analysis for expired domains before acquisition |
+
 
 ### Memory (GDPR Compliant)
 | Tool | Description |
