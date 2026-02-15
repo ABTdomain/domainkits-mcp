@@ -27,6 +27,14 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 | `tld_check` | Check keyword availability across all TLDs |
 | `available` | Instant availability check with pricing |
 
+### Analysis Tools ⚠️
+| Tool | Description |
+|------|-------------|
+| `backlink_summary` | SEO backlink profile analysis |
+| `keyword_data` | Google Ads keyword data: volume, CPC, competition |
+
+> ⚠️ Analysis tools require a registered account. [Sign up free](https://domainkits.com/login)
+
 ### Trend Tools
 | Tool | Description |
 |------|-------------|
@@ -39,7 +47,7 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 | Tool | Description |
 |------|-------------|
 | `bulk_tld` | Check keyword popularity across TLDs |
-| `bulk_available` | Batch availability check with pricing |
+| `bulk_available` | Batch availability check with pricing (up to 10 per request) |
 
 ### Workflow Guides
 | Tool | Description |
@@ -48,6 +56,8 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 | `similar` | Find alternatives when a domain is taken |
 | `plan_b` | Orchestrated search across deleted/expired/aged |
 | `analyze` | Comprehensive domain audit |
+| `brand_match` | Brand association risk detection |
+| `expired_analysis` | In-depth analysis for expired domains before acquisition |
 
 ### Memory (GDPR Compliant)
 | Tool | Description |
@@ -56,39 +66,17 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 | `set_preferences` | Save preferences (requires explicit consent) |
 | `delete_preferences` | Delete all stored data |
 
+---
+
 ## Quick Start
 
-### Gemini CLI
-
-Edit `~/.gemini/settings.json`:
-```json
-{
-  "mcpServers": {
-    "domainkits": {
-      "url": "https://api.domainkits.com/v1/mcp"
-    }
-  }
-}
-```
-
-With API key (for higher limits):
-```json
-{
-  "mcpServers": {
-    "domainkits": {
-      "url": "https://api.domainkits.com/v1/mcp",
-      "headers": {
-        "X-API-Key": "your-api-key-here"
-      }
-    }
-  }
-}
-```
 ### Claude Desktop
 
 Edit your config file:
 - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+**macOS / Linux:**
 ```json
 {
   "mcpServers": {
@@ -105,6 +93,107 @@ Edit your config file:
 }
 ```
 
+**Windows:**
+```json
+{
+  "mcpServers": {
+    "domainkits": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "mcp-remote",
+        "https://api.domainkits.com/v1/mcp",
+        "--transport",
+        "http-first"
+      ]
+    }
+  }
+}
+```
+
+**With API key (higher limits):**
+
+macOS / Linux:
+```json
+{
+  "mcpServers": {
+    "domainkits": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://api.domainkits.com/v1/mcp",
+        "--header",
+        "X-API-Key: your-api-key-here",
+        "--transport",
+        "http-first"
+      ]
+    }
+  }
+}
+```
+
+Windows:
+```json
+{
+  "mcpServers": {
+    "domainkits": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "mcp-remote",
+        "https://api.domainkits.com/v1/mcp",
+        "--header",
+        "X-API-Key: your-api-key-here",
+        "--transport",
+        "http-first"
+      ]
+    }
+  }
+}
+```
+
+### Gemini CLI
+
+Edit `~/.gemini/settings.json`:
+```json
+{
+  "mcpServers": {
+    "domainkits": {
+      "url": "https://api.domainkits.com/v1/mcp"
+    }
+  }
+}
+```
+
+With API key:
+```json
+{
+  "mcpServers": {
+    "domainkits": {
+      "url": "https://api.domainkits.com/v1/mcp",
+      "headers": {
+        "X-API-Key": "your-api-key-here"
+      }
+    }
+  }
+}
+```
+
+### Cursor
+
+Edit `~/.cursor/mcp.json`:
+```json
+{
+  "mcpServers": {
+    "domainkits": {
+      "url": "https://api.domainkits.com/v1/mcp"
+    }
+  }
+}
+```
+
 ### Other MCP Clients
 
 Use endpoint: `https://api.domainkits.com/v1/mcp`
@@ -113,17 +202,18 @@ Optional header: `X-API-Key: your-api-key-here`
 
 ---
 
-**Free tier (no API key):**
-- 5 requests/minute
-- 50 requests/day
-- Basic search and query tools
+## Access Tiers
 
-**With API key:**
-- Higher rate limits
-- More results per search
-- Memory features (save preferences)
+| Tier | Daily Limit | Features |
+|------|-------------|----------|
+| **Guest** | ~10 requests | Most tools, 1 page results, enough for 3-5 complete queries |
+| **Member** (free) | 30-50 requests | All tools, 3 pages, memory features |
+| **Premium** | 500 requests | Full depth, 10 pages, priority support |
+| **Platinum** | Unlimited | No limits |
 
 Get your API key at [domainkits.com](https://domainkits.com)
+
+---
 
 ## Examples
 ```
@@ -140,14 +230,7 @@ Get your API key at [domainkits.com](https://domainkits.com)
 "Find 4-letter .com domains registered this week"
 ```
 
-## Rate Limits
-
-| Tier | Requests/Min | Daily Limit |
-|------|--------------|-------------|
-| Guest | 5 | 50 |
-| Member | 20 | 500 |
-| Premium | 60 | 2000 |
-| Platinum | Unlimited | Unlimited |
+---
 
 ## Memory & Privacy
 
@@ -162,9 +245,11 @@ DomainKits supports optional memory to remember your preferences:
 - Requires explicit user consent to enable
 - Users can delete all data anytime via `delete_preferences`
 
+---
+
 ## Links
 
-- Website: [domainkits.com](https://domainkits.com/mcp)
+- Website: [domainkits.com/mcp](https://domainkits.com/mcp)
 - API Endpoint: `https://api.domainkits.com/v1/mcp`
 - GitHub: [github.com/ABTdomain/domainkits-mcp](https://github.com/ABTdomain/domainkits-mcp)
 - Support: info@domainkits.com
