@@ -127,7 +127,7 @@ Ask your AI assistant:
 - "Find me a short .com domain for an AI startup"
 - "What domains with 'crypto' are expiring today?"
 - "Check if awesomeapp.com is available"
-- "Analyze the domain stripe.com"
+- "Analyze the domain domainkits.com"
 
 ## Usage Examples
 
