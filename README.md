@@ -241,7 +241,7 @@ Get your API key at [domainkits.com](https://domainkits.com)
 - "Show me trending keywords in domain registrations"
 
 **Analysis**
-- "Analyze the domain stripe.com"
+- "Analyze the domain domainkits.com"
 - "Check brand conflict risk for niceflow.com"
 
 **Generation**
@@ -249,7 +249,7 @@ Get your API key at [domainkits.com](https://domainkits.com)
 - "Generate domain ideas for a fintech company"
 
 **Monitoring** (requires memory)
-- "Monitor stripe.com for any changes"
+- "Monitor domainkits.com for any changes"
 - "Set up a strategy to find dropping AI domains daily"
 
 ---
