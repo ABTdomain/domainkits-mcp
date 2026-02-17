@@ -28,6 +28,14 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 | `tld_check` | Check keyword availability across all TLDs |
 | `available` | Instant availability check with pricing |
 
+### Analysis Tools ⚠️
+| Tool | Description |
+|------|-------------|
+| `backlink_summary` | SEO backlink profile analysis |
+| `keyword_data` | Google Ads keyword data: volume, CPC, competition |
+
+> ⚠️ Analysis tools require a registered account. [Sign up free](https://domainkits.com/login)
+
 ### Trend Tools
 | Tool | Description |
 |------|-------------|
@@ -42,24 +50,38 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 | `bulk_tld` | Check keyword popularity across TLDs |
 | `bulk_available` | Batch availability check with pricing |
 
-
 ### Workflow Guides
 | Tool | Description |
 |------|-------------|
-| `suggest` | AI-guided domain name brainstorming |
-| `similar` | Find alternatives when a domain is taken |
-| `plan_b` | Orchestrated search across deleted/expired/aged |
-| `analyze` | Comprehensive domain audit |
-| `brand_match` | Brand association risk detection |
-| `expired_analysis` | In-depth analysis for expired domains before acquisition |
+| `analyze` | Comprehensive domain audit (WHOIS, DNS, safety, TLD distribution) |
+| `brand_match` | Brand conflict detection with trademark database links |
+| `plan_b` | Find alternatives when target domain is taken |
+| `domain_generator` | Generate creative domain ideas with availability check |
+| `expired_analysis` | Due diligence for expiring/expired domains |
+| `trend_hunter` | Spot trending keywords and find related opportunities |
 
-
-### Memory (GDPR Compliant)
+### Preferences
 | Tool | Description |
 |------|-------------|
-| `get_preferences` | Retrieve saved user preferences |
-| `set_preferences` | Save preferences (requires explicit consent) |
-| `delete_preferences` | Delete all stored data |
+| `get_preferences` | Check memory status and retrieve saved preferences |
+| `set_preferences` | Save preferences (TLDs, budget, style, industry) |
+| `delete_preferences` | Delete all stored data (GDPR Article 17) |
+
+### Monitor (Requires Memory)
+| Tool | Description |
+|------|-------------|
+| `set_monitor` | Create domain monitoring task (WHOIS/DNS/page changes) |
+| `get_monitors` | Retrieve and execute pending monitor checks |
+| `update_monitor` | Save monitor check results |
+| `delete_monitor` | Remove a monitoring task |
+
+### Strategy (Requires Memory)
+| Tool | Description |
+|------|-------------|
+| `set_strategy` | Create automated opportunity discovery strategy |
+| `get_strategies` | Retrieve and execute pending strategies |
+| `update_strategy` | Save strategy execution results |
+| `delete_strategy` | Remove a strategy |
 
 ## Quick Start
 
@@ -144,14 +166,14 @@ AI: [calls whois, dns, safety, tld_check]
     - Brand Protection: .net/.org also taken
 ```
 
-## Rate Limits
+## Access Tiers
 
-| Tier | Requests/Min | Daily Limit |
-|------|--------------|-------------|
-| Guest | 5 | 50 |
-| Member | 20 | 500 |
-| Premium | 60 | 2000 |
-| Platinum | Unlimited | Unlimited |
+| Tier | Rate Limit | Monitors | Strategies | SEO Tools |
+|------|------------|----------|------------|-----------|
+| **Guest** | ~10/day per category | ❌ | ❌ | ❌ |
+| **Member** (free) | 30-50/day | 5 | 1 | ✅ |
+| **Premium** | 500/day | 50 | 3 | ✅ |
+| **Platinum** | Unlimited | Unlimited | Unlimited | ✅ |
 
 ## Memory & Privacy
 
