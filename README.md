@@ -54,19 +54,35 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 ### Workflow Guides
 | Tool | Description |
 |------|-------------|
-| `suggest` | AI-guided domain name brainstorming |
-| `similar` | Find alternatives when a domain is taken |
-| `plan_b` | Orchestrated search across deleted/expired/aged |
-| `analyze` | Comprehensive domain audit |
-| `brand_match` | Brand association risk detection |
-| `expired_analysis` | In-depth analysis for expired domains before acquisition |
+| `analyze` | Comprehensive domain audit (WHOIS, DNS, safety, TLD distribution) |
+| `brand_match` | Brand conflict detection with trademark database links |
+| `plan_b` | Find alternatives when target domain is taken |
+| `domain_generator` | Generate creative domain ideas with availability check |
+| `expired_analysis` | Due diligence for expiring/expired domains |
+| `trend_hunter` | Spot trending keywords and find related opportunities |
 
-### Memory (GDPR Compliant)
+### Preferences
 | Tool | Description |
 |------|-------------|
-| `get_preferences` | Retrieve saved user preferences |
-| `set_preferences` | Save preferences (requires explicit consent) |
-| `delete_preferences` | Delete all stored data |
+| `get_preferences` | Check memory status and retrieve saved preferences |
+| `set_preferences` | Save preferences (TLDs, budget, style, industry) |
+| `delete_preferences` | Delete all stored data (GDPR Article 17) |
+
+### Monitor (Requires Memory)
+| Tool | Description |
+|------|-------------|
+| `set_monitor` | Create domain monitoring task (WHOIS/DNS/page changes) |
+| `get_monitors` | Retrieve and execute pending monitor checks |
+| `update_monitor` | Save monitor check results |
+| `delete_monitor` | Remove a monitoring task |
+
+### Strategy (Requires Memory)
+| Tool | Description |
+|------|-------------|
+| `set_strategy` | Create automated opportunity discovery strategy |
+| `get_strategies` | Retrieve and execute pending strategies |
+| `update_strategy` | Save strategy execution results |
+| `delete_strategy` | Remove a strategy |
 
 ---
 
@@ -206,32 +222,35 @@ Optional header: `X-API-Key: your-api-key-here`
 
 ## Access Tiers
 
-- **Guest** — No account needed. Most tools available with ~10 requests/day per category. Good for trying out.
-- **Member** (free) — All tools including SEO analysis. 30-50 requests/day. Memory features enabled.
-- **Premium** — 500 requests/day, deep search
-- **Platinum** — Unlimited requests. No restrictions.
+| Tier | Rate Limit | Monitors | Strategies | SEO Tools |
+|------|------------|----------|------------|-----------|
+| **Guest** | ~10/day per category | ❌ | ❌ | ❌ |
+| **Member** (free) | 30-50/day | 5 | 1 | ✅ |
+| **Premium** | 500/day | 50 | 3 | ✅ |
+| **Platinum** | Unlimited | Unlimited | Unlimited | ✅ |
 
 Get your API key at [domainkits.com](https://domainkits.com)
 
 ---
 
 ## Examples
-```
-"Find available 3-letter .ai domains"
 
-"Find me a short .com domain for an AI startup"
+**Search & Discovery**
+- "Find available 3-letter .ai domains"
+- "What domains with 'crypto' are expiring today?"
+- "Show me trending keywords in domain registrations"
 
-"What domains with 'crypto' are expiring today?"
+**Analysis**
+- "Analyze the domain stripe.com"
+- "Check brand conflict risk for niceflow.com"
 
-"Check if awesomeapp.com is available"
+**Generation**
+- "Find me a short .com domain for an AI startup"
+- "Generate domain ideas for a fintech company"
 
-"Analyze the domain stripe.com"
-
-"Show me trending keywords in domain registrations"
-
-"Find 4-letter .com domains registered this week"
-
-```
+**Monitoring** (requires memory)
+- "Monitor stripe.com for any changes"
+- "Set up a strategy to find dropping AI domains daily"
 
 ---
 
