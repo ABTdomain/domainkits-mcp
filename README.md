@@ -1,5 +1,4 @@
 # DomainKits MCP
-[![MCP Badge](https://lobehub.com/badge/mcp/abtdomain-domainkits-mcp?style=for-the-badge)](https://lobehub.com/mcp/abtdomain-domainkits-mcp)
 
 The domain agent framework for AI assistants. DomainKits MCP combines domain intelligence tools with built-in industry expertise — turning Claude, GPT, Gemini, and other AI assistants into domain agents that can search, analyze, and act on market data through natural conversation.
 
