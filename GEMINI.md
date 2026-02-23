@@ -18,6 +18,7 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 | `active` | Scan live websites and acquisition targets |
 | `ns_reverse` | Reverse lookup by nameserver |
 | `unregistered_ai` | Find unregistered short .ai domains (3-letter, CVCV, VCVC, CCVV patterns) |
+| `domain_changes` | Domain change detection, actively monitors 4M+ domains for transfers, expirations, new registrations, and NS changes |
 
 ### Query Tools
 | Tool | Description |
