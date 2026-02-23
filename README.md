@@ -284,3 +284,4 @@ DomainKits supports optional memory to remember your preferences:
 Proprietary. The MCP interface specification is public, but the underlying domain data and gateway services are proprietary.
 
 For commercial use and API access, visit [domainkits.com](https://domainkits.com).
+
