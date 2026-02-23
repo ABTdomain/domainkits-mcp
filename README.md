@@ -18,6 +18,7 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 | `active` | Scan live websites and acquisition targets |
 | `ns_reverse` | Reverse lookup by nameserver |
 | `unregistered_ai` | Find unregistered short .ai domains (3-letter, CVCV, VCVC, CCVV patterns) |
+| `domain_changes` | Domain change detection, actively monitors 4M+ domains for transfers, expirations, new registrations, and NS changes |
 
 
 ### Query Tools
@@ -239,6 +240,8 @@ Get your API key at [domainkits.com](https://domainkits.com)
 - "Find available 3-letter .ai domains"
 - "What domains with 'crypto' are expiring today?"
 - "Show me trending keywords in domain registrations"
+- "What short domains changed ns in the last 1 hour?"
+
 
 **Analysis**
 - "Analyze the domain domainkits.com"
