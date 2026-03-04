@@ -223,15 +223,19 @@ Optional header: `X-API-Key: your-api-key-here`
 
 ## Access Tiers
 
-| Tier | Rate Limit | Monitors | Strategies | SEO Tools |
-|------|------------|----------|------------|-----------|
-| **Guest** | ~10/day per category | ❌ | ❌ | ❌ |
-| **Member** (free) | 30-50/day | 5 | 1 | ✅ |
-| **Premium** | 500/day | 50 | 3 | ✅ |
-| **Platinum** | Unlimited | Unlimited | Unlimited | ✅ |
+## Access Tiers
 
-Get your API key at [domainkits.com](https://domainkits.com)
+| Tier | Daily Limits | Rate/Min | Monitors | Strategies | SEO Tools |
+|------|-------------|----------|----------|------------|-----------|
+| **Guest** | ~5-20/day | 1-4 | ❌ | ❌ | ❌ |
+| **Member** (free) | 10-120/day | 2-10 | 5 | 1 | ✅ |
+| **AI Access** ($13.99/mo) | 100-500/day | 5-20 | 20 | 3 | ✅ |
+| **Premium** ($29.99/mo) | 200-1100/day | 10-50 | 50 | 6 | ✅ |
+| **Platinum** | Unlimited | Unlimited | Unlimited | Unlimited | ✅ |
 
+Limits vary by tool. AI Access is included with Premium.
+
+Sign up at [domainkits.com](https://domainkits.com/register) to get your free API key · [View pricing](https://domainkits.com/pricing)
 ---
 
 ## Examples
