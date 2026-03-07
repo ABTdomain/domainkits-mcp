@@ -19,6 +19,7 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 | `ns_reverse` | Reverse lookup by nameserver |
 | `unregistered_ai` | Find unregistered short .ai domains (3-letter, CVCV, VCVC, CCVV patterns) |
 | `domain_changes` | Domain change detection, actively monitors 4M+ domains for transfers, expirations, new registrations, and NS changes |
+| `price` | Registration and renewal prices by TLD |
 
 ### Query Tools
 | Tool | Description |
@@ -41,16 +42,16 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 ### Trend Tools
 | Tool | Description |
 |------|-------------|
+| `keywords_trends` | Hot, emerging, and prefix keywords in domain registrations |
 | `tld_trends` | Historical registration trends by TLD |
-| `keywords_trends` | Hot and emerging keywords in domain registrations |
 | `tld_rank` | TLD rankings by registration volume |
-| `price` | Registration and renewal prices by TLD |
+
 
 ### Bulk Tools
 | Tool | Description |
 |------|-------------|
 | `bulk_tld` | Check keyword popularity across TLDs |
-| `bulk_available` | Batch availability check with pricing |
+| `bulk_available` | Batch availability check with pricing (up to 10 per request) |
 
 ### Workflow Guides
 | Tool | Description |
@@ -61,6 +62,10 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 | `domain_generator` | Generate creative domain ideas with availability check |
 | `expired_analysis` | Due diligence for expiring/expired domains |
 | `trend_hunter` | Spot trending keywords and find related opportunities |
+| `keyword_intel` | Deep keyword intelligence for domain investment |
+| `market_beat` | Domain market news briefing |
+| `name_advisor` | Professional domain naming consultation |
+| `valuation_cma` | Comparative Market Analysis valuation |
 
 ### Personal Tools (Require Memory)
 | Tool | Action | Description |
