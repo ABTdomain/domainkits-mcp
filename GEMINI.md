@@ -28,6 +28,7 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 | `safety` | Check domain reputation via Google Safe Browsing |
 | `tld_check` | Check keyword availability across all TLDs |
 | `available` | Instant availability check with pricing |
+| `market_price` | Check secondary market listings and price estimates |
 
 ### Analysis Tools ⚠️
 | Tool | Description |
@@ -61,28 +62,21 @@ DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain
 | `expired_analysis` | Due diligence for expiring/expired domains |
 | `trend_hunter` | Spot trending keywords and find related opportunities |
 
-### Preferences
-| Tool | Description |
-|------|-------------|
-| `get_preferences` | Check memory status and retrieve saved preferences |
-| `set_preferences` | Save preferences (TLDs, budget, style, industry) |
-| `delete_preferences` | Delete all stored data (GDPR Article 17) |
-
-### Monitor (Requires Memory)
-| Tool | Description |
-|------|-------------|
-| `set_monitor` | Create domain monitoring task (WHOIS/DNS/page changes) |
-| `get_monitors` | Retrieve and execute pending monitor checks |
-| `update_monitor` | Save monitor check results |
-| `delete_monitor` | Remove a monitoring task |
-
-### Strategy (Requires Memory)
-| Tool | Description |
-|------|-------------|
-| `set_strategy` | Create automated opportunity discovery strategy |
-| `get_strategies` | Retrieve and execute pending strategies |
-| `update_strategy` | Save strategy execution results |
-| `delete_strategy` | Remove a strategy |
+### Personal Tools (Require Memory)
+| Tool | Action | Description |
+|------|--------|-------------|
+| `preferences` | `get` | Check memory status and retrieve saved preferences |
+| `preferences` | `set` | Save preferences (TLDs, budget, style, industry) |
+| `preferences` | `delete` | Delete all stored data (GDPR Article 17) |
+| `monitor` | `get` | Retrieve and auto-check all monitored domains |
+| `monitor` | `set` | Create domain monitoring task (WHOIS/DNS/page changes) |
+| `monitor` | `update` | Save web_fetch page results for a monitor |
+| `monitor` | `delete` | Remove a monitoring task |
+| `strategy` | `get` | Retrieve strategies with run status and available presets |
+| `strategy` | `set` | Create automated opportunity discovery strategy |
+| `strategy` | `update` | Save strategy execution results |
+| `strategy` | `delete` | Remove a strategy |
+| `usage` | — | Check current usage and remaining quota |
 
 ## Quick Start
 
@@ -169,12 +163,15 @@ AI: [calls whois, dns, safety, tld_check]
 
 ## Access Tiers
 
-| Tier | Rate Limit | Monitors | Strategies | SEO Tools |
-|------|------------|----------|------------|-----------|
-| **Guest** | ~10/day per category | ❌ | ❌ | ❌ |
-| **Member** (free) | 30-50/day | 5 | 1 | ✅ |
-| **Premium** | 500/day | 50 | 3 | ✅ |
-| **Platinum** | Unlimited | Unlimited | Unlimited | ✅ |
+| Tier | Daily Limits | Rate/Min | Monitors | Strategies | SEO Tools |
+|------|-------------|----------|----------|------------|-----------|
+| **Guest** | ~5-20/day | 1-4 | ❌ | ❌ | ❌ |
+| **Member** (free) | 10-120/day | 2-10 | 5 | 1 | ✅ |
+| **AI Access** ($13.99/mo) | 100-500/day | 5-20 | 20 | 3 | ✅ |
+| **Premium** ($29.99/mo) | 200-1100/day | 10-50 | 50 | 6 | ✅ |
+| **Platinum** | Unlimited | Unlimited | Unlimited | Unlimited | ✅ |
+
+Limits vary by tool. AI Access is included with Premium.
 
 ## Memory & Privacy
 
@@ -187,7 +184,7 @@ DomainKits supports optional memory to remember your preferences:
 **GDPR Compliant:**
 - Memory is OFF by default
 - Requires explicit user consent to enable
-- Users can delete all data anytime via `delete_preferences`
+- Users can delete all data anytime via `preferences` with `action: delete`
 
 ## Links
 
