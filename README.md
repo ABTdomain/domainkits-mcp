@@ -20,7 +20,6 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 | `unregistered_ai` | Find unregistered short .ai domains (3-letter, CVCV, VCVC, CCVV patterns) |
 | `domain_changes` | Domain change detection, actively monitors 4M+ domains for transfers, expirations, new registrations, and NS changes |
 
-
 ### Query Tools
 | Tool | Description |
 |------|-------------|
@@ -29,6 +28,7 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 | `safety` | Check domain reputation via Google Safe Browsing |
 | `tld_check` | Check keyword availability across all TLDs |
 | `available` | Instant availability check with pricing |
+| `market_price` | Check secondary market listings and price estimates |
 
 ### Analysis Tools ⚠️
 | Tool | Description |
@@ -62,28 +62,21 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 | `expired_analysis` | Due diligence for expiring/expired domains |
 | `trend_hunter` | Spot trending keywords and find related opportunities |
 
-### Preferences
-| Tool | Description |
-|------|-------------|
-| `get_preferences` | Check memory status and retrieve saved preferences |
-| `set_preferences` | Save preferences (TLDs, budget, style, industry) |
-| `delete_preferences` | Delete all stored data (GDPR Article 17) |
-
-### Monitor (Requires Memory)
-| Tool | Description |
-|------|-------------|
-| `set_monitor` | Create domain monitoring task (WHOIS/DNS/page changes) |
-| `get_monitors` | Retrieve and execute pending monitor checks |
-| `update_monitor` | Save monitor check results |
-| `delete_monitor` | Remove a monitoring task |
-
-### Strategy (Requires Memory)
-| Tool | Description |
-|------|-------------|
-| `set_strategy` | Create automated opportunity discovery strategy |
-| `get_strategies` | Retrieve and execute pending strategies |
-| `update_strategy` | Save strategy execution results |
-| `delete_strategy` | Remove a strategy |
+### Personal Tools (Require Memory)
+| Tool | Action | Description |
+|------|--------|-------------|
+| `preferences` | `get` | Check memory status and retrieve saved preferences |
+| `preferences` | `set` | Save preferences (TLDs, budget, style, industry) |
+| `preferences` | `delete` | Delete all stored data (GDPR Article 17) |
+| `monitor` | `get` | Retrieve and auto-check all monitored domains |
+| `monitor` | `set` | Create domain monitoring task (WHOIS/DNS/page changes) |
+| `monitor` | `update` | Save web_fetch page results for a monitor |
+| `monitor` | `delete` | Remove a monitoring task |
+| `strategy` | `get` | Retrieve strategies with run status and available presets |
+| `strategy` | `set` | Create automated opportunity discovery strategy |
+| `strategy` | `update` | Save strategy execution results |
+| `strategy` | `delete` | Remove a strategy |
+| `usage` | — | Check current usage and remaining quota |
 
 ---
 
@@ -223,8 +216,6 @@ Optional header: `X-API-Key: your-api-key-here`
 
 ## Access Tiers
 
-## Access Tiers
-
 | Tier | Daily Limits | Rate/Min | Monitors | Strategies | SEO Tools |
 |------|-------------|----------|----------|------------|-----------|
 | **Guest** | ~5-20/day | 1-4 | ❌ | ❌ | ❌ |
@@ -236,6 +227,7 @@ Optional header: `X-API-Key: your-api-key-here`
 Limits vary by tool. AI Access is included with Premium.
 
 Sign up at [domainkits.com](https://domainkits.com/register) to get your free API key · [View pricing](https://domainkits.com/pricing)
+
 ---
 
 ## Examples
@@ -245,7 +237,6 @@ Sign up at [domainkits.com](https://domainkits.com/register) to get your free AP
 - "What domains with 'crypto' are expiring today?"
 - "Show me trending keywords in domain registrations"
 - "What short domains changed ns in the last 1 hour?"
-
 
 **Analysis**
 - "Analyze the domain domainkits.com"
@@ -272,7 +263,7 @@ DomainKits supports optional memory to remember your preferences:
 **GDPR Compliant:**
 - Memory is OFF by default
 - Requires explicit user consent to enable
-- Users can delete all data anytime via `delete_preferences`
+- Users can delete all data anytime via `preferences` with `action: delete`
 
 ---
 
@@ -288,4 +279,3 @@ DomainKits supports optional memory to remember your preferences:
 Proprietary. The MCP interface specification is public, but the underlying domain data and gateway services are proprietary.
 
 For commercial use and API access, visit [domainkits.com](https://domainkits.com).
-
