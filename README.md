@@ -1,10 +1,11 @@
 # DomainKits MCP
 
-The domain agent framework for AI assistants. DomainKits MCP combines domain intelligence tools with built-in industry expertise — turning Claude, GPT, Gemini, and other AI assistants into domain agents that can search, analyze, and act on market data through natural conversation.
+Domain data MCP server for AI assistants. DomainKits MCP connects Claude, GPT, Gemini, and other AI assistants to real-time domain data, turning them into domain agents that can search, analyze, and act on market data through natural conversation.
 
 ## What is this?
 
-DomainKits MCP is more than an API — it combines domain intelligence tools with built-in expertise, turning your AI into a domain agent that knows what to look for, how to analyze it, and when to act.
+DomainKits MCP is a domain agent framework that combines domain data tools with built-in industry expertise. Check availability with pricing. Search newly registered, expired, and deleted domains. Analyze WHOIS, DNS, backlinks, and keyword value. Track registration trends and market movements. Your AI knows what to look for, how to analyze it, and when to act.
+Pair with DomainKits Skills to give your AI agent domain industry workflows for deeper analysis.
 
 ## Features
 
@@ -31,7 +32,6 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 | `available` | Instant availability check with pricing |
 | `market_price` | Check secondary market listings and price estimates |
 
-
 ### Analysis Tools ⚠️
 | Tool | Description |
 |------|-------------|
@@ -47,7 +47,6 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 | `tld_trends` | Historical registration trends by TLD |
 | `tld_rank` | TLD rankings by registration volume |
 
-
 ### Bulk Tools
 | Tool | Description |
 |------|-------------|
@@ -57,7 +56,7 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 ### Workflow Guides
 | Tool | Description |
 |------|-------------|
-| `analyze` | Comprehensive domain analyze (WHOIS, DNS, safety, TLD distribution) |
+| `analyze` | Comprehensive domain analysis (WHOIS, DNS, safety, TLD distribution) |
 | `brand_match` | Brand conflict detection with trademark database links |
 | `plan_b` | Find alternatives when target domain is taken |
 | `domain_generator` | Generate creative domain ideas with availability check |
@@ -87,6 +86,22 @@ DomainKits MCP is more than an API — it combines domain intelligence tools wit
 ---
 
 ## Quick Start
+
+### Claude Code
+
+```bash
+claude mcp add domainkits https://api.domainkits.com/v1/mcp
+```
+
+With API key (higher limits):
+
+```bash
+claude mcp add domainkits https://api.domainkits.com/v1/mcp --header "X-API-Key: YOUR_KEY"
+```
+
+### Claude.ai
+
+Connect DomainKits via **Settings → Connectors**. No manual configuration needed.
 
 ### Claude Desktop
 
@@ -214,13 +229,11 @@ Edit `~/.cursor/mcp.json`:
 
 ### Other MCP Clients
 
-Use endpoint: `https://api.domainkits.com/v1/mcp`
+Endpoint: `https://api.domainkits.com/v1/mcp`
 
 Optional header: `X-API-Key: your-api-key-here`
 
 ---
-
-## Access Tiers
 
 ## Access Tiers
 
@@ -234,7 +247,8 @@ Optional header: `X-API-Key: your-api-key-here`
 
 Limits vary by tool. AI Access is included with Premium.
 
-Sign up at [domainkits.com](https://domainkits.com/register) to get your free API key · [View pricing](https://domainkits.com/pricing)
+Register a free account and get your API key at [domainkits.com](https://domainkits.com/register) · [View pricing](https://domainkits.com/pricing)
+
 ---
 
 ## Examples
@@ -243,8 +257,7 @@ Sign up at [domainkits.com](https://domainkits.com/register) to get your free AP
 - "Find available 3-letter .ai domains"
 - "What domains with 'crypto' are expiring today?"
 - "Show me trending keywords in domain registrations"
-- "What short domains changed ns in the last 1 hour?"
-
+- "What short domains changed NS in the last 1 hour?"
 
 **Analysis**
 - "Analyze the domain domainkits.com"
@@ -279,12 +292,12 @@ DomainKits supports optional memory to remember your preferences:
 
 - Website: [domainkits.com/mcp](https://domainkits.com/mcp)
 - API Endpoint: `https://api.domainkits.com/v1/mcp`
-- GitHub: [github.com/ABTdomain/domainkits-mcp](https://github.com/ABTdomain/domainkits-mcp)
+- Skills: github.com/ABTdomain/domainkits-skills
+- Developed by: [abtdomain.com](https://abtdomain.com)
 - Support: info@domainkits.com
-
+- developed by: [abtdomain.com](https://abtdomain.com)
 ## License
 
 Proprietary. The MCP interface specification is public, but the underlying domain data and gateway services are proprietary.
 
 For commercial use and API access, visit [domainkits.com](https://domainkits.com).
-
