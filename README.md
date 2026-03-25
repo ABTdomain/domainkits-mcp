@@ -1,11 +1,10 @@
 # DomainKits MCP
 
-Domain data MCP server for AI assistants. DomainKits MCP connects Claude, GPT, Gemini, and other AI assistants to real-time domain data, turning them into domain agents that can search, analyze, and act on market data through natural conversation.
+Domain MCP server for AI assistants. DomainKits MCP connects Claude, GPT, Gemini, and other AI assistants to domain data, turning them into domain agents that can search, analyze, and act on market data through natural conversation.
 
 ## What is this?
 
-DomainKits MCP is a domain agent framework that combines domain data tools with built-in industry expertise. Check availability with pricing. Search newly registered, expired, and deleted domains. Analyze WHOIS, DNS, backlinks, and keyword value. Track registration trends and market movements. Your AI knows what to look for, how to analyze it, and when to act.
-Pair with DomainKits Skills to give your AI agent domain industry workflows for deeper analysis.
+Check availability with pricing. Search newly registered, expired, and deleted domains. Analyze WHOIS, DNS, backlinks, and keyword value. Track registration trends and market movements. Pair with [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills) to give your AI agent domain industry workflows for deeper analysis.
 
 ## Features
 
