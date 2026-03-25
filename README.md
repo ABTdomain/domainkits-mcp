@@ -294,7 +294,8 @@ DomainKits supports optional memory to remember your preferences:
 - Skills: github.com/ABTdomain/domainkits-skills
 - Developed by: [abtdomain.com](https://abtdomain.com)
 - Support: info@domainkits.com
-- developed by: [abtdomain.com](https://abtdomain.com)
+
+
 ## License
 
 Proprietary. The MCP interface specification is public, but the underlying domain data and gateway services are proprietary.
