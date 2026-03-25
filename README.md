@@ -291,7 +291,7 @@ DomainKits supports optional memory to remember your preferences:
 
 - Website: [domainkits.com/mcp](https://domainkits.com/mcp)
 - API Endpoint: `https://api.domainkits.com/v1/mcp`
-- Skills: github.com/ABTdomain/domainkits-skills
+- Skills: [github.com/ABTdomain/domainkits-skills](https://github.com/ABTdomain/domainkits-skills)
 - Developed by: [abtdomain.com](https://abtdomain.com)
 - Support: info@domainkits.com
 
