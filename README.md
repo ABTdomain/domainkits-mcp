@@ -4,7 +4,7 @@ Domain MCP server for AI assistants. DomainKits MCP connects Claude, GPT, Gemini
 
 ## What is this?
 
-Check availability with pricing. Search newly registered, expired, and deleted domains. Analyze WHOIS, DNS, backlinks, and keyword value. Track registration trends and market movements. Pair with [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills) to give your AI agent domain industry workflows for deeper analysis.
+Check availability with pricing. Search newly registered, expired, and deleted domains. Analyze WHOIS, DNS, and keyword value. Track registration trends and market movements. Pair with [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills) to give your AI agent domain industry workflows for deeper analysis.
 
 ## Features
 
@@ -34,7 +34,6 @@ Check availability with pricing. Search newly registered, expired, and deleted d
 ### Analysis Tools ⚠️
 | Tool | Description |
 |------|-------------|
-| `backlink_summary` | SEO backlink profile analysis |
 | `keyword_data` | Google Ads keyword data: volume, CPC, competition |
 
 > ⚠️ Analysis tools require a registered account. [Sign up free](https://domainkits.com/login)
