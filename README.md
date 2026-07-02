@@ -4,16 +4,16 @@ Domain MCP server for AI assistants. DomainKits MCP connects Claude, GPT, Gemini
 
 ## What is this?
 
-Check availability with pricing. Search newly registered, expired, and deleted domains. Analyze WHOIS, DNS, and keyword value. Track registration trends and market movements. Pair with [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills) to give your AI agent domain industry workflows for deeper analysis.
+Check availability with pricing. Search newly registered, expired, and deleted domains. Analyze WHOIS, DNS, backlinks, and keyword value. Track registration trends and market movements. Pair with [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills) to give your AI agent domain industry workflows for deeper analysis.
 
 ## Features
 
 ### Search Tools
 | Tool | Description |
 |------|-------------|
-| `nrds` | Monitor newly registered domains, spot viral trends |
+| `nrds` | Monitor newly registered domains by keyword, or browse a gTLD |
 | `aged` | Find established domains with 5-20+ years history |
-| `expired` | Discover domains entering deletion cycle |
+| `expired` | Discover domains entering deletion cycle by keyword, or browse a gTLD |
 | `deleted` | Search just-dropped domains available for standard registration |
 | `active` | Scan live websites and acquisition targets |
 | `ns_reverse` | Reverse lookup by nameserver |
@@ -34,6 +34,7 @@ Check availability with pricing. Search newly registered, expired, and deleted d
 ### Analysis Tools ⚠️
 | Tool | Description |
 |------|-------------|
+| `backlink_summary` | SEO backlink profile analysis |
 | `keyword_data` | Google Ads keyword data: volume, CPC, competition |
 
 > ⚠️ Analysis tools require a registered account. [Sign up free](https://domainkits.com/login)
