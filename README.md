@@ -12,10 +12,11 @@ Check availability with pricing. Search newly registered, expired, and deleted d
 | Tool | Description |
 |------|-------------|
 | `nrds` | Monitor newly registered domains by keyword, or browse a gTLD |
-| `aged` | Find established domains with 5-20+ years history |
+| `aged` | Find established domains with 5-20+ years history by keyword, or browse a gTLD |
 | `expired` | Discover domains entering deletion cycle by keyword, or browse a gTLD |
 | `deleted` | Search just-dropped domains available for standard registration |
 | `active` | Scan live websites and acquisition targets |
+| `market` | Search domains listed for sale by keyword, or browse a gTLD |
 | `ns_reverse` | Reverse lookup by nameserver |
 | `unregistered_ai` | Find unregistered short .ai domains (3-letter, CVCV, VCVC, CCVV patterns) |
 | `domain_changes` | Domain change detection, actively monitors 4M+ domains for transfers, expirations, new registrations, and NS changes |
