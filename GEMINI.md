@@ -174,7 +174,7 @@ AI: [calls whois, dns, safety, tld_check]
 | **Guest** | ~5-20/day | 1-4 | ❌ | ❌ | ❌ |
 | **Member** (free) | 10-120/day | 2-10 | 5 | 1 | ✅ |
 | **AI Access** ($13.99/mo) | 100-500/day | 5-20 | 20 | 3 | ✅ |
-| **Premium** ($29.99/mo) | 200-1100/day | 10-50 | 50 | 6 | ✅ |
+| **Premium** ($99.99/mo) | 200-1100/day | 10-50 | 50 | 6 | ✅ |
 | **Platinum** | Unlimited | Unlimited | Unlimited | Unlimited | ✅ |
 
 Limits vary by tool. AI Access is included with Premium.
