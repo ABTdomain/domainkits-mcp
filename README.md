@@ -18,6 +18,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | `ns_reverse` | Reverse lookup by nameserver |
 | `unregistered_ai` | Unregistered short .ai domains (3-letter, pattern-based) |
 | `domain_changes` | Domain change detection across 4M+ monitored domains (transfers, expirations, NS changes) |
+| `typosquat` | Typosquat scanner (dnstwist-style permutations) with live registration verification |
 
 ### Lookup
 | Tool | Description |
