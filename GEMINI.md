@@ -1,94 +1,74 @@
 # DomainKits MCP
 
-A Model Context Protocol (MCP) server that turns AI assistants into domain investment experts. Search, analyze, and discover domain names with real-time market data.
+Domain data server for AI assistants. DomainKits MCP connects Claude, GPT, Gemini, and other AI assistants to live domain registration, DNS, availability, trend, and market data through the [Model Context Protocol](https://modelcontextprotocol.io/).
 
-## What is this?
+MCP is the **data layer**. For domain industry workflows (naming consultation, competitive analysis, keyword intelligence, expired domain due diligence, and more), see [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills), an open-source collection of workflow prompts that any AI assistant can use on top of this data.
 
-DomainKits MCP connects AI assistants (Claude, GPT, etc.) to professional domain intelligence tools. Instead of guessing domain availability, the AI can actually check it. Instead of generic naming suggestions, it validates ideas against real market data.
+## Tools
 
-## Features
-
-### Search Tools
+### Search
 | Tool | Description |
 |------|-------------|
-| `nrds` | Monitor newly registered domains by keyword, or browse a gTLD |
-| `aged` | Find established domains with 5-20+ years history by keyword, or browse a gTLD |
-| `expired` | Discover domains entering deletion cycle by keyword, or browse a gTLD |
-| `deleted` | Search just-dropped domains available for standard registration |
-| `active` | Scan live websites and acquisition targets |
-| `market` | Search domains listed for sale by keyword, or browse a gTLD |
+| `nrds` | Newly registered domains by keyword, or browse a gTLD |
+| `aged` | Established domains with registration history by keyword, or browse a gTLD |
+| `expired` | Domains entering the deletion cycle by keyword, or browse a gTLD |
+| `deleted` | Just-dropped domains available for standard registration |
+| `active` | Live registered domains (~240M gTLD database) |
+| `market` | Domains carrying marketplace listing data by keyword, or browse a gTLD |
 | `ns_reverse` | Reverse lookup by nameserver |
-| `unregistered_ai` | Find unregistered short .ai domains (3-letter, CVCV, VCVC, CCVV patterns) |
-| `domain_changes` | Domain change detection, actively monitors 4M+ domains for transfers, expirations, new registrations, and NS changes |
-| `price` | Registration and renewal prices by TLD |
+| `unregistered_ai` | Unregistered short .ai domains (3-letter, pattern-based) |
+| `domain_changes` | Domain change detection across 4M+ monitored domains (transfers, expirations, NS changes) |
+| `typosquat` | Typosquat scanner (dnstwist-style permutations) with live registration verification |
 
-### Query Tools
+### Lookup
 | Tool | Description |
 |------|-------------|
-| `dns` | Query DNS records (A, MX, NS, TXT, etc.) |
-| `whois` | Get registration details and dates |
-| `safety` | Check domain reputation via Google Safe Browsing |
-| `tld_check` | Check keyword availability across all TLDs |
-| `available` | Instant availability check with pricing |
-| `market_price` | Check secondary market listings and price estimates |
+| `dns` | DNS records (A, AAAA, MX, NS, TXT, SOA) |
+| `whois` | WHOIS/RDAP registration data (registrar, dates, status, nameservers) |
+| `safety` | Google Safe Browsing status |
+| `available` | Single-domain availability with pricing |
+| `tld_check` | Keyword availability across TLDs |
+| `keyword_data` | Google Ads keyword data (volume, CPC, competition) |
+| `price` | Standard registration and renewal prices by TLD |
+| `market_price` | Secondary market listing prices |
+| `backlink_summary` | SEO backlink profile |
 
-### Analysis Tools ⚠️
-| Tool | Description |
-|------|-------------|
-| `backlink_summary` | SEO backlink profile analysis |
-| `keyword_data` | Google Ads keyword data: volume, CPC, competition |
-
-> ⚠️ Analysis tools require a registered account. [Sign up free](https://domainkits.com/login)
-
-### Trend Tools
+### Trends
 | Tool | Description |
 |------|-------------|
 | `keywords_trends` | Hot, emerging, and prefix keywords in domain registrations |
 | `tld_trends` | Historical registration trends by TLD |
 | `tld_rank` | TLD rankings by registration volume |
 
-
-### Bulk Tools
+### Bulk
 | Tool | Description |
 |------|-------------|
-| `bulk_tld` | Check keyword popularity across TLDs |
-| `bulk_available` | Batch availability check with pricing (up to 10 per request) |
+| `bulk_tld` | Keyword popularity across TLDs |
+| `bulk_available` | Batch availability check (up to 10 domains) |
 
-### Workflow Guides
-| Tool | Description |
-|------|-------------|
-| `analyze` | Comprehensive domain audit (WHOIS, DNS, safety, TLD distribution) |
-| `brand_match` | Brand conflict detection with trademark database links |
-| `plan_b` | Find alternatives when target domain is taken |
-| `domain_generator` | Generate creative domain ideas with availability check |
-| `expired_analysis` | Due diligence for expiring/expired domains |
-| `trend_hunter` | Spot trending keywords and find related opportunities |
-| `keyword_intel` | Deep keyword intelligence for domain investment |
-| `market_beat` | Domain market news briefing |
-| `name_advisor` | Professional domain naming consultation |
-| `valuation_cma` | Comparative Market Analysis valuation |
-
-### Personal Tools (Require Memory)
+### Stateful (require memory)
 | Tool | Action | Description |
 |------|--------|-------------|
-| `preferences` | `get` | Check memory status and retrieve saved preferences |
+| `preferences` | `get` | Check memory status and saved preferences |
 | `preferences` | `set` | Save preferences (TLDs, budget, style, industry) |
 | `preferences` | `delete` | Delete all stored data (GDPR Article 17) |
-| `monitor` | `get` | Retrieve and auto-check all monitored domains |
-| `monitor` | `set` | Create domain monitoring task (WHOIS/DNS/page changes) |
-| `monitor` | `update` | Save web_fetch page results for a monitor |
+| `monitor` | `get` | Retrieve and check all monitored domains |
+| `monitor` | `set` | Create a monitoring task (WHOIS, DNS, page changes) |
+| `monitor` | `update` | Save check results for a monitor |
 | `monitor` | `delete` | Remove a monitoring task |
-| `strategy` | `get` | Retrieve strategies with run status and available presets |
-| `strategy` | `set` | Create automated opportunity discovery strategy |
+| `strategy` | `get` | Retrieve saved strategies with run status |
+| `strategy` | `set` | Store user-authored strategy text |
 | `strategy` | `update` | Save strategy execution results |
 | `strategy` | `delete` | Remove a strategy |
-| `usage` | — | Check current usage and remaining quota |
+| `usage` | | Current tier, per-group usage, and remaining quota |
+
+All stateful data is encrypted at rest (AES-256-GCM) in isolated per-user directories.
 
 ## Quick Start
 
-### Option A: Without API Key (Limited Access)
+### Gemini CLI
 
-Add to your MCP client configuration:
+Edit `~/.gemini/settings.json`:
 ```json
 {
   "mcpServers": {
@@ -99,10 +79,7 @@ Add to your MCP client configuration:
 }
 ```
 
-### Option B: With API Key (Full Access)
-
-1. Sign up at [domainkits.com](https://domainkits.com) to get your API key
-2. Add to your MCP client configuration:
+With API key (higher limits):
 ```json
 {
   "mcpServers": {
@@ -116,90 +93,63 @@ Add to your MCP client configuration:
 }
 ```
 
-With API key you get:
-- Higher rate limits
-- More results per search
-- Memory features (save preferences)
-- Priority support
+### Other MCP Clients
 
-### 3. Start Using
+Endpoint: `https://api.domainkits.com/v1/mcp`
 
-Ask your AI assistant:
-- "Find me a short .com domain for an AI startup"
-- "What domains with 'crypto' are expiring today?"
-- "Check if awesomeapp.com is available"
-- "Analyze the domain domainkits.com"
-
-## Usage Examples
-
-### Find Available Domains
-```
-User: Help me find a domain for my vegan skincare brand
-
-AI: [calls bulk_available with generated ideas]
-    Found 3 available options:
-    - veganglow.io ($39/year) - Register Now
-    - purevegan.co ($29/year) - Register Now  
-    - skincarelab.app ($14/year) - Register Now
-```
-
-### Monitor Trends
-```
-User: What keywords are trending in domain registrations?
-
-AI: [calls keywords_trends type="emerging"]
-    Top emerging keywords this week:
-    1. "gpt" - 340% increase
-    2. "llm" - 280% increase
-    3. "agent" - 195% increase
-```
-
-### Domain Analysis
-```
-User: Analyze example.com for me
-
-AI: [calls whois, dns, safety, tld_check]
-    Domain Profile:
-    - Registered: 1995 (29 years old)
-    - Registrar: ICANN
-    - Status: Active with MX records
-    - Safety: Clean
-    - Brand Protection: .net/.org also taken
-```
+Optional header: `X-API-Key: your-api-key-here`
 
 ## Access Tiers
 
-| Tier | Daily Limits | Rate/Min | Monitors | Strategies | SEO Tools |
-|------|-------------|----------|----------|------------|-----------|
-| **Guest** | ~5-20/day | 1-4 | ❌ | ❌ | ❌ |
-| **Member** (free) | 10-120/day | 2-10 | 5 | 1 | ✅ |
-| **AI Access** ($13.99/mo) | 100-500/day | 5-20 | 20 | 3 | ✅ |
-| **Premium** ($99.99/mo) | 200-1100/day | 10-50 | 50 | 6 | ✅ |
-| **Platinum** | Unlimited | Unlimited | Unlimited | Unlimited | ✅ |
+| | Guest | Member (free) | Premium | Platinum |
+|---|---|---|---|---|
+| **Search tools** | Limited | 2,000/day | 2,000/day, unlimited pages | Unlimited |
+| **Lookup tools** | Limited | Varies | 50-600/day | Unlimited or high cap |
+| **Trend tools** | Limited | Unlimited | Unlimited | Unlimited |
+| **Bulk tools** | Limited | Limited | 1,000/day | Unlimited |
+| **Backlink summary** | -- | 20/day | 20/day | 200/day |
+| **Monitors** | -- | 5 | 50 | Unlimited |
+| **Strategies** | -- | 1 | 6 | Unlimited |
 
-Limits vary by tool. AI Access is included with Premium.
+Limits vary by tool group. See `usage` tool output for exact per-group quotas.
 
-## Memory & Privacy
+Register free at [domainkits.com](https://domainkits.com/register). [View pricing](https://domainkits.com/pricing).
 
-DomainKits supports optional memory to remember your preferences:
-- Preferred TLDs
-- Budget range
-- Naming style
-- Industry
+## Examples
 
-**GDPR Compliant:**
-- Memory is OFF by default
-- Requires explicit user consent to enable
-- Users can delete all data anytime via `preferences` with `action: delete`
+**Search and discovery**
+- "Find domains with 'solar' registered in the last 7 days"
+- "What .ai domains are expiring this week?"
+- "Show me trending keywords in .com registrations"
+
+**Lookup**
+- "Check DNS and WHOIS for example.com"
+- "Is mybrand.ai available? What does it cost?"
+
+**Brand protection**
+- "Run a typosquat scan on ourbank.com"
+- "Any new registrations containing 'acme' in the last 10 days?"
+
+**Trends**
+- "What are the hottest keywords in domain registrations right now?"
+- "Compare .ai vs .io registration trends over 90 days"
+
+## Privacy
+
+- Memory is off by default and requires explicit consent
+- All stored data is encrypted at rest (AES-256-GCM)
+- Isolated per-user directories
+- Full data deletion via `preferences` with `action: delete` (GDPR Article 17)
 
 ## Links
 
-- Website: [domainkits.com](https://domainkits.com)
+- Website: [domainkits.com/mcp](https://domainkits.com/mcp)
+- Skills: [github.com/ABTdomain/domainkits-skills](https://github.com/ABTdomain/domainkits-skills)
 - API Endpoint: `https://api.domainkits.com/v1/mcp`
 - Support: info@domainkits.com
 
 ## License
 
-Proprietary. The MCP interface specification is public, but the underlying domain data and gateway services are proprietary.
+Proprietary. The MCP interface specification is public, but the underlying domain data and services are proprietary.
 
 For commercial use and API access, visit [domainkits.com](https://domainkits.com).
