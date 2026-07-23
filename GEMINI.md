@@ -62,7 +62,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | `strategy` | `delete` | Remove a strategy |
 | `usage` | | Current tier, per-group usage, and remaining quota |
 
-All stateful data is encrypted at rest (AES-256-GCM) in isolated per-user directories.
+Stateful data is server-side and cross-platform: preferences, monitors, and strategies persist across Claude, Gemini, Cursor, and any other MCP client under the same account. All data encrypted at rest (AES-256-GCM) in isolated per-user directories.
 
 ## Quick Start
 
