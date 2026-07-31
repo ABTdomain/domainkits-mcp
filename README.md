@@ -233,14 +233,14 @@ Set `DOMAINKITS_API_KEY` for higher limits; without it the server runs on the gu
 
 DomainKits MCP serves raw data. [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills) are open-source workflow prompts that teach AI assistants how to use that data for domain industry tasks:
 
-- **Domain Name Advisor** -- naming consultation with availability checking
-- **Domain Analyze** -- comprehensive WHOIS, DNS, backlink, and market analysis
-- **CMA Valuation** -- comparative market analysis against current for-sale listings
-- **Expired Domain Analysis** -- due diligence for auction, backorder, and dropping domains
-- **Keyword Intel** -- keyword-level supply, demand, and concentration analysis
-- **Keyword Trend Hunter** -- spot trending keywords and find registration opportunities
+- **Brand Protection** -- scan typosquats and lookalike registrations around a brand, evaluated per domain on registration facts
+- **Domain Analyze** -- registration, DNS, website, safety, backlink, cross-TLD and market evidence for one domain
+- **Domain CMA Valuation** -- comparative market analysis against current for-sale listings
 - **Domain Generator** -- creative domain name generation with validation
-- **Plan B** -- systematic alternatives when a target domain is taken
+- **Domain Market Beat** -- time-bounded domain market briefing with source tiers and explicit inference limits
+- **Domain Name Advisor** -- naming consultation with availability checking
+- **Keyword Intel** -- keyword-level supply, demand, and concentration analysis
+- **Keyword Trend Hunter** -- spot trending keywords and validate them against new registration cohorts
 
 Skills work with any MCP client. Add them alongside this server and the AI assistant gains both raw data access and structured workflows.
 
