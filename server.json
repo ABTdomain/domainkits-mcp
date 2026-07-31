@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.ABTdomain/domainkits-mcp",
-  "description": "Domain intelligence platform that turns your LLM into a professional domain consultant.",
+  "description": "Domain data for AI assistants: search newly registered, expired, aged, active, deleted and for-sale domains, with WHOIS, DNS, availability, trend and market lookups.",
   "title": "DomainKits",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "repository": {
     "url": "https://github.com/ABTdomain/domainkits-mcp",
     "source": "github"
@@ -12,6 +12,26 @@
     {
       "type": "streamable-http",
       "url": "https://api.domainkits.com/v1/mcp"
+    }
+  ],
+  "websiteUrl": "https://domainkits.com/mcp",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@domainkits/mcp",
+      "version": "0.1.4",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "DOMAINKITS_API_KEY",
+          "description": "Optional API key. Without it the server runs on the guest quota.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
     }
   ]
 }

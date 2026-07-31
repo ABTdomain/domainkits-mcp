@@ -3,6 +3,8 @@
 
 Domain data server for AI assistants. DomainKits MCP connects Claude, GPT, Gemini, and other AI assistants to live domain registration, DNS, availability, trend, and market data through the [Model Context Protocol](https://modelcontextprotocol.io/).
 
+This is the official MCP server for the DomainKits API, published and maintained by the DomainKits team. DomainKits is built and operated by [ABTdomain, a domain intelligence platform](https://abtdomain.com), which also owns the GitHub organisation hosting this repository. The relationship is stated on [domainkits.com/about](https://domainkits.com/about).
+
 MCP is the **data layer**. For domain industry workflows (naming consultation, competitive analysis, keyword intelligence, expired domain due diligence, and more), see [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills), an open-source collection of workflow prompts that any AI assistant can use on top of this data.
 
 ## Tools
@@ -215,6 +217,16 @@ Endpoint: `https://api.domainkits.com/v1/mcp`
 
 Optional header: `X-API-Key: your-api-key-here`
 
+### Local install (npm)
+
+Prefer a local stdio server? The same tools ship as an npm package:
+
+```bash
+npx @domainkits/mcp
+```
+
+Set `DOMAINKITS_API_KEY` for higher limits; without it the server runs on the guest quota. Package: [@domainkits/mcp](https://www.npmjs.com/package/@domainkits/mcp).
+
 ---
 
 ## Skills
@@ -277,6 +289,7 @@ Register free at [domainkits.com](https://domainkits.com/register). [View pricin
 
 ## Privacy
 
+- No tool returns registrant personal data (no PII)
 - Memory is off by default and requires explicit consent
 - All stored data is encrypted at rest (AES-256-GCM)
 - Isolated per-user directories
