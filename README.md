@@ -295,6 +295,8 @@ Register free at [domainkits.com](https://domainkits.com/register). [View pricin
 - Isolated per-user directories
 - Full data deletion via `preferences` with `action: delete` (GDPR Article 17)
 
+Full details: [Privacy Policy](https://domainkits.com/privacy) | [Terms of Service](https://domainkits.com/terms)
+
 ---
 
 ## Links
@@ -303,6 +305,8 @@ Register free at [domainkits.com](https://domainkits.com/register). [View pricin
 - Skills: [github.com/ABTdomain/domainkits-skills](https://github.com/ABTdomain/domainkits-skills)
 - API Endpoint: `https://api.domainkits.com/v1/mcp`
 - Support: info@domainkits.com
+- Privacy Policy: [domainkits.com/privacy](https://domainkits.com/privacy)
+- Terms: [domainkits.com/terms](https://domainkits.com/terms)
 
 ## License
 
