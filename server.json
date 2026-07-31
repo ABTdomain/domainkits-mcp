@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.ABTdomain/domainkits-mcp",
-  "description": "Domain data for AI assistants: search newly registered, expired, aged, active, deleted and for-sale domains, with WHOIS, DNS, availability, trend and market lookups.",
+  "description": "Search newly registered, expired, aged, active, deleted and for-sale domains, plus WHOIS and DNS.",
   "title": "DomainKits",
   "version": "2.1.0",
   "repository": {
