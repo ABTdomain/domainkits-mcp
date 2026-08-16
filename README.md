@@ -1,7 +1,8 @@
-
-# DomainKits MCP
 [![Lulu MCPs](https://getlulu.dev/api/mcps/badge/domainkits-mcp-the-domain-name-intelligence)](https://getlulu.dev/mcps/domainkits-mcp-the-domain-name-intelligence)
 [![smithery badge](https://smithery.ai/badge/DomainKits/domainkits)](https://smithery.ai/servers/DomainKits/domainkits)
+
+# DomainKits MCP
+
 Domain data server for AI assistants. DomainKits MCP connects Claude, GPT, Gemini, and other AI assistants to live domain registration, DNS, availability, trend, and market data through the [Model Context Protocol](https://modelcontextprotocol.io/).
 
 This is the official MCP server for the DomainKits API, published and maintained by the DomainKits team. DomainKits is built and operated by Lyalpha GmbH, with domain data and infrastructure provided by [ABTdomain](https://abtdomain.com), our domain intelligence and data aggregation platform. This repository is hosted under the ABTdomain GitHub organisation. Learn more about the relationship at [domainkits.com/about](https://domainkits.com/about).
