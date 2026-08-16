@@ -1,5 +1,6 @@
 [![smithery badge](https://smithery.ai/badge/DomainKits/domainkits)](https://smithery.ai/servers/DomainKits/domainkits)
 # DomainKits MCP
+[![Lulu MCPs](https://getlulu.dev/api/mcps/badge/domainkits-mcp-the-domain-name-intelligence)](https://getlulu.dev/mcps/domainkits-mcp-the-domain-name-intelligence)
 
 Domain data server for AI assistants. DomainKits MCP connects Claude, GPT, Gemini, and other AI assistants to live domain registration, DNS, availability, trend, and market data through the [Model Context Protocol](https://modelcontextprotocol.io/).
 
