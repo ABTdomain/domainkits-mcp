@@ -15,6 +15,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | Tool | Description |
 |------|-------------|
 | `nrds` | Newly registered domains by keyword, or browse a gTLD |
+| `nrds_live` | Live feed of domains registered in the last three days, updated continuously |
 | `aged` | Established domains with registration history by keyword, or browse a gTLD |
 | `expired` | Domains entering the deletion cycle by keyword, or browse a gTLD |
 | `deleted` | Just-dropped domains available for standard registration |
@@ -49,7 +50,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | Tool | Description |
 |------|-------------|
 | `bulk_tld` | Keyword popularity across TLDs |
-| `bulk_available` | Batch availability check (up to 10 domains) |
+| `bulk_available` | Batch availability check (up to 50 domains) |
 
 ### Stateful (require memory)
 | Tool | Action | Description |
@@ -270,9 +271,10 @@ Register free at [domainkits.com](https://domainkits.com/register). [View pricin
 
 **Search and discovery**
 - "Find domains with 'solar' registered in the last 7 days"
+- "What has been registered in the last few hours with 'agent' in the name?"
 - "What .ai domains are expiring this week?"
 - "Show me trending keywords in .com registrations"
-- "What short domains changed nameservers in the last hour?"
+- "What short domains changed nameservers this week?"
 
 **Lookup**
 - "Check DNS and WHOIS for example.com"
