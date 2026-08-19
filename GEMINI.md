@@ -100,19 +100,9 @@ Endpoint: `https://api.domainkits.com/v1/mcp`
 
 Optional header: `X-API-Key: your-api-key-here`
 
-## Access Tiers
+## Access
 
-| | Guest | Member (free) | Premium | Platinum |
-|---|---|---|---|---|
-| **Search tools** | Limited | 2,000/day | 2,000/day, unlimited pages | Unlimited |
-| **Lookup tools** | Limited | Varies | 50-600/day | Unlimited or high cap |
-| **Trend tools** | Limited | Unlimited | Unlimited | Unlimited |
-| **Bulk tools** | Limited | Limited | 1,000/day | Unlimited |
-| **Backlink summary** | -- | 20/day | 20/day | 200/day |
-| **Monitors** | -- | 5 | 50 | Unlimited |
-| **Strategies** | -- | 1 | 6 | Unlimited |
-
-Limits vary by tool group. See `usage` tool output for exact per-group quotas.
+Works without an API key on a guest quota. A free account raises it; paid tiers raise it further and unlock the full filter set and deeper paging. Current per-tier limits are listed at [domainkits.com/pricing](https://domainkits.com/pricing); the `usage` tool reports the live quota for your own account.
 
 Register free at [domainkits.com](https://domainkits.com/register). [View pricing](https://domainkits.com/pricing).
 
