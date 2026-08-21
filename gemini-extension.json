@@ -1,6 +1,6 @@
 {
   "name": "domainkits",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Domain intelligence tools - Search newly registered, expired, deleted domains. Check availability with pricing. WHOIS/DNS lookup. TLD trends and keyword tracking.",
   "mcpServers": {
     "domainkits": {

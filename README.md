@@ -19,11 +19,11 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | `aged` | Established domains with registration history by keyword, or browse a gTLD |
 | `expired` | Domains entering the deletion cycle by keyword, or browse a gTLD |
 | `deleted` | Just-dropped domains available for standard registration |
-| `active` | Live registered domains (~240M gTLD database) |
+| `active` | Live registered domains |
 | `market` | Domains carrying marketplace listing data by keyword, or browse a gTLD |
 | `ns_reverse` | Reverse lookup by nameserver |
 | `unregistered_ai` | Unregistered short .ai domains (3-letter, pattern-based) |
-| `domain_changes` | Domain change detection across 4M+ monitored domains (transfers, expirations, NS changes) |
+| `domain_changes` | Registration and status changes to premium .com names over the last 7 days |
 | `typosquat` | Typosquat scanner (dnstwist-style permutations) with live registration verification |
 
 ### Lookup
@@ -33,6 +33,9 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | `whois` | WHOIS/RDAP registration data (registrar, dates, status, nameservers) |
 | `safety` | Google Safe Browsing status |
 | `available` | Single-domain availability with pricing |
+| `ip_lookup` | Resolve an IP or hostname to its network operator and approximate location |
+| `registrar` | Look up ICANN-accredited registrars by name, alias or IANA ID |
+| `epp_status` | Explain a domain EPP status code and what the holder can do about it |
 | `tld_check` | Keyword availability across TLDs |
 | `keyword_data` | Google Ads keyword data (volume, CPC, competition) |
 | `price` | Standard registration and renewal prices by TLD |
@@ -68,7 +71,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | `strategy` | `delete` | Remove a strategy |
 | `usage` | | Current tier, per-group usage, and remaining quota |
 
-Stateful data is server-side and cross-platform: preferences, monitors, and strategies persist across Claude, Gemini, Cursor, and any other MCP client under the same account. All data encrypted at rest (AES-256-GCM) in isolated per-user directories.
+Stateful data is server-side and cross-platform: preferences, monitors, and strategies persist across Claude, Gemini, Cursor, and any other MCP client under the same account. All data encrypted at rest in isolated per-user directories.
 
 ---
 
@@ -285,7 +288,7 @@ Register free at [domainkits.com](https://domainkits.com/register). [View pricin
 
 - No tool returns registrant personal data (no PII)
 - Memory is off by default and requires explicit consent
-- All stored data is encrypted at rest (AES-256-GCM)
+- All stored data is encrypted at rest
 - Isolated per-user directories
 - Full data deletion via `preferences` with `action: delete` (GDPR Article 17)
 
