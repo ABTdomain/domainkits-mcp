@@ -71,38 +71,8 @@ Stateful data is server-side and cross-platform: preferences, monitors, and stra
 
 ## Quick Start
 
-### Gemini CLI
-
-Edit `~/.gemini/settings.json`:
-```json
-{
-  "mcpServers": {
-    "domainkits": {
-      "httpUrl": "https://api.domainkits.com/v1/mcp"
-    }
-  }
-}
-```
-
-With API key (higher limits):
-```json
-{
-  "mcpServers": {
-    "domainkits": {
-      "httpUrl": "https://api.domainkits.com/v1/mcp",
-      "headers": {
-        "X-API-Key": "your-api-key-here"
-      }
-    }
-  }
-}
-```
-
-### Other MCP Clients
-
-Endpoint: `https://api.domainkits.com/v1/mcp`
-
-Optional header: `X-API-Key: your-api-key-here`
+- Endpoint: `https://api.domainkits.com/v1/mcp` (optional header `X-API-Key` for account limits)
+- Setup for Gemini CLI and other clients: [domainkits.com/mcp](https://domainkits.com/mcp)
 
 ## Access
 
