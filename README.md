@@ -22,7 +22,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | `active` | Live registered domains |
 | `market` | Domains carrying marketplace listing data by keyword, or browse a gTLD |
 | `ns_reverse` | Reverse lookup by nameserver |
-| `unregistered_ai` | Unregistered short .ai domains (3-letter, pattern-based) |
+| `unregistered_ai` | Unregistered short .ai domains (3-4 letter, pattern-based) |
 | `domain_changes` | Registration and status changes to premium .com names over the last 7 days |
 | `typosquat` | Typosquat scanner (dnstwist-style permutations) with live registration verification |
 
@@ -65,6 +65,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | `monitor` | `set` | Create a monitoring task (WHOIS, DNS, page changes) |
 | `monitor` | `update` | Save check results for a monitor |
 | `monitor` | `delete` | Remove a monitoring task |
+| `monitor` | `history` | Change history for monitored domains (filter by domain, up to 365 days) |
 | `strategy` | `get` | Retrieve saved strategies with run status |
 | `strategy` | `set` | Store user-authored strategy text |
 | `strategy` | `update` | Save strategy execution results |
@@ -80,13 +81,13 @@ Stateful data is server-side and cross-platform: preferences, monitors, and stra
 ### Claude Code
 
 ```bash
-claude mcp add domainkits https://api.domainkits.com/v1/mcp
+claude mcp add --transport http domainkits https://api.domainkits.com/v1/mcp
 ```
 
 With API key (higher limits):
 
 ```bash
-claude mcp add domainkits https://api.domainkits.com/v1/mcp --header "X-API-Key: YOUR_KEY"
+claude mcp add --transport http domainkits https://api.domainkits.com/v1/mcp --header "X-API-Key: YOUR_KEY"
 ```
 
 ### Claude.ai
@@ -184,7 +185,7 @@ Edit `~/.gemini/settings.json`:
 {
   "mcpServers": {
     "domainkits": {
-      "url": "https://api.domainkits.com/v1/mcp"
+      "httpUrl": "https://api.domainkits.com/v1/mcp"
     }
   }
 }
@@ -195,7 +196,7 @@ With API key:
 {
   "mcpServers": {
     "domainkits": {
-      "url": "https://api.domainkits.com/v1/mcp",
+      "httpUrl": "https://api.domainkits.com/v1/mcp",
       "headers": {
         "X-API-Key": "your-api-key-here"
       }
@@ -265,7 +266,7 @@ Register free at [domainkits.com](https://domainkits.com/register). [View pricin
 **Search and discovery**
 - "Find domains with 'solar' registered in the last 7 days"
 - "What has been registered in the last few hours with 'agent' in the name?"
-- "What .ai domains are expiring this week?"
+- "What .com domains are expiring this week?"
 - "Show me trending keywords in .com registrations"
 - "What short domains changed nameservers this week?"
 
