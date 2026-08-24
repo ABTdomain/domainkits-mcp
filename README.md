@@ -277,7 +277,7 @@ Register free at [domainkits.com](https://domainkits.com/register). [View pricin
 
 **Trends**
 - "What are the hottest keywords in domain registrations right now?"
-- "Compare .ai vs .io registration trends over 90 days"
+- "Compare .com vs .net registration trends over 90 days"
 
 **Monitoring** (requires memory)
 - "Monitor example.com for WHOIS and DNS changes"
