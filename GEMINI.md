@@ -132,6 +132,7 @@ Register free at [domainkits.com](https://domainkits.com/register). [View pricin
 
 ## Privacy
 
+- No tool returns domain registrant personal data. `registrar` returns ICANN-published registrar business contacts.
 - Memory is off by default and requires explicit consent
 - All stored data is encrypted at rest (AES-256-GCM)
 - Isolated per-user directories
