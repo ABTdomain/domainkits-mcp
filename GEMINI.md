@@ -2,7 +2,7 @@
 
 Domain data server for AI assistants. DomainKits MCP connects Claude, GPT, Gemini, and other AI assistants to live domain registration, DNS, availability, trend, and market data through the [Model Context Protocol](https://modelcontextprotocol.io/).
 
-MCP is the **data layer**. For domain industry workflows (naming consultation, competitive analysis, keyword intelligence, expired domain due diligence, and more), see [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills), an open-source collection of workflow prompts that any AI assistant can use on top of this data.
+MCP is the **data layer**. For domain industry workflows (naming consultation, brand protection, domain analysis, valuation, keyword intelligence, and more), see [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills), an open-source collection of workflow prompts that any AI assistant can use on top of this data.
 
 ## Tools
 
@@ -31,7 +31,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | `ip_lookup` | Resolve an IP or hostname to its network operator and approximate location |
 | `registrar` | Look up ICANN-accredited registrars by name, alias or IANA ID |
 | `epp_status` | Explain a domain EPP status code and what the holder can do about it |
-| `tld_check` | Keyword availability across TLDs |
+| `tld_check` | Prefix registration status across core TLDs, with aggregate counts |
 | `keyword_data` | Google Ads keyword data (volume, CPC, competition) |
 | `price` | Standard registration and renewal prices by TLD |
 | `market_price` | Secondary market listing prices |
@@ -47,10 +47,10 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 ### Bulk
 | Tool | Description |
 |------|-------------|
-| `bulk_tld` | Keyword popularity across TLDs |
+| `bulk_tld` | Registration status of one keyword across many TLDs |
 | `bulk_available` | Batch availability check (up to 50 domains) |
 
-### Stateful (require memory)
+### Stateful (memory-backed)
 | Tool | Action | Description |
 |------|--------|-------------|
 | `preferences` | `get` | Check memory status and saved preferences |
@@ -67,7 +67,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, c
 | `strategy` | `delete` | Remove a strategy |
 | `usage` | | Current tier, per-group usage, and remaining quota |
 
-Stateful data is server-side and cross-platform: preferences, monitors, and strategies persist across Claude, Gemini, Cursor, and any other MCP client under the same account. All data encrypted at rest in isolated per-user directories.
+Stateful data is server-side and cross-platform: preferences, monitors, and strategies persist across Claude, Gemini, Cursor, and any other MCP client under the same account. All data encrypted at rest (AES-256-GCM) in isolated per-user directories.
 
 ## Quick Start
 
@@ -133,7 +133,7 @@ Register free at [domainkits.com](https://domainkits.com/register). [View pricin
 ## Privacy
 
 - Memory is off by default and requires explicit consent
-- All stored data is encrypted at rest
+- All stored data is encrypted at rest (AES-256-GCM)
 - Isolated per-user directories
 - Full data deletion via `preferences` with `action: delete` (GDPR Article 17)
 
