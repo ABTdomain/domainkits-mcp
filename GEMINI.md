@@ -26,7 +26,6 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, b
 |------|-------------|
 | `dns` | DNS records (A, AAAA, MX, NS, TXT, SOA) |
 | `whois` | WHOIS/RDAP registration data (registrar, dates, status, nameservers) |
-| `safety` | Google Safe Browsing status |
 | `available` | Single-domain availability with pricing |
 | `ip_lookup` | Resolve an IP or hostname to its network operator and approximate location |
 | `registrar` | Look up ICANN-accredited registrars by name, alias or IANA ID |

@@ -31,7 +31,6 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, b
 |------|-------------|
 | `dns` | DNS records (A, AAAA, MX, NS, TXT, SOA) |
 | `whois` | WHOIS/RDAP registration data (registrar, dates, status, nameservers) |
-| `safety` | Google Safe Browsing status |
 | `available` | Single-domain availability with pricing |
 | `ip_lookup` | Resolve an IP or hostname to its network operator and approximate location |
 | `registrar` | Look up ICANN-accredited registrars by name, alias or IANA ID |
@@ -89,7 +88,7 @@ Stateful data is server-side and cross-platform: preferences, monitors, and stra
 DomainKits MCP serves raw data. [DomainKits Skills](https://github.com/ABTdomain/domainkits-skills) are open-source workflow prompts that teach AI assistants how to use that data for domain industry tasks:
 
 - **Brand Protection** -- scan typosquats and lookalike registrations around a brand, evaluated per domain on registration facts
-- **Domain Analyze** -- registration, DNS, website, safety, backlink, cross-TLD and market evidence for one domain
+- **Domain Analyze** -- registration, DNS, website, backlink, cross-TLD and market evidence for one domain
 - **Domain CMA Valuation** -- comparative market analysis against current for-sale listings
 - **Domain Generator** -- creative domain name generation with validation
 - **Domain Market Beat** -- time-bounded domain market briefing with source tiers and explicit inference limits
