@@ -3,7 +3,7 @@
   "name": "io.github.ABTdomain/domainkits-mcp",
   "description": "Search newly registered, expired, aged, active, deleted and for-sale domains, plus WHOIS and DNS.",
   "title": "DomainKits",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "repository": {
     "url": "https://github.com/ABTdomain/domainkits-mcp",
     "source": "github"
