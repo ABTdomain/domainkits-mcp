@@ -31,7 +31,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, b
 | `registrar` | Look up ICANN-accredited registrars by name, alias or IANA ID |
 | `epp_status` | Explain a domain EPP status code and what the holder can do about it |
 | `tld_check` | Prefix registration status across core TLDs, with aggregate counts |
-| `keyword_data` | Google Ads keyword data (volume, CPC, competition) |
+| `keyword_data` | Keyword data (search volume, CPC, competition) |
 | `price` | Standard registration and renewal prices by TLD |
 | `market_price` | Secondary market listing prices |
 | `backlink_summary` | SEO backlink profile |
