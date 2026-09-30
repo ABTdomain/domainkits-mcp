@@ -15,7 +15,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, b
 | Tool | Description |
 |------|-------------|
 | `nrds` | Newly registered domains by keyword, or browse a gTLD |
-| `nrds_live` | Live feed of domains registered in the last three days, updated continuously |
+| `nrds_live` | Live feed of newly registered domains, updated continuously; reaches back up to 60 days, best for the last three days |
 | `aged` | Established domains with registration history by keyword, or browse a gTLD |
 | `expired` | Domains entering the deletion cycle by keyword, or browse a gTLD |
 | `deleted` | Just-dropped domains available for standard registration |
