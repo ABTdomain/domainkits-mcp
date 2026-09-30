@@ -51,7 +51,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, b
 ### Bulk
 | Tool | Description |
 |------|-------------|
-| `bulk_tld` | Registration status of one keyword across many TLDs |
+| `bulk_tld` | How many TLDs each of up to 50 keywords is registered in (counts only) |
 | `bulk_available` | Batch availability check (up to 50 domains) |
 
 ### Stateful (memory-backed)
