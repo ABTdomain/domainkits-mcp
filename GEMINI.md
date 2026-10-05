@@ -17,7 +17,7 @@ MCP is the **data layer**. For domain industry workflows (naming consultation, b
 | `active` | Live registered domains |
 | `market` | Domains carrying marketplace listing data by keyword, or browse a gTLD |
 | `ns_reverse` | Reverse lookup by nameserver |
-| `unregistered_ai` | Unregistered short .ai domains (3-4 letter, pattern-based) |
+| `unregistered_short_domains` | Unregistered short domains (3-4 letter, pattern-based) |
 | `domain_changes` | Registration and status changes to premium .com names over the last 7 days |
 | `typosquat` | Typosquat scanner (dnstwist-style permutations) with live registration verification |
 
