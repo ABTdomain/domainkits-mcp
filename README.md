@@ -1,5 +1,5 @@
 [![Lulu MCPs](https://getlulu.dev/api/mcps/badge/domainkits-mcp-the-domain-name-intelligence)](https://getlulu.dev/mcps/domainkits-mcp-the-domain-name-intelligence)
-[![smithery badge](https://smithery.ai/badge/DomainKits/domainkits)](https://smithery.ai/servers/DomainKits/domainkits)
+[![LightNow capabilities](https://lightnow.ai/badge/io.github.ABTdomain/domainkits-mcp)](https://lightnow.ai/servers/io.github.ABTdomain/domainkits-mcp)
 
 # DomainKits MCP
 
