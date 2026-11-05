@@ -1,6 +1,7 @@
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square)](https://insiders.vscode.dev/redirect/mcp/install?name=domainkits&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.domainkits.com%2Fv1%2Fmcp%22%7D)
 [![Install in Cursor](https://img.shields.io/badge/Cursor-Install_Server-000000?style=flat-square&logo=cursor&logoColor=white)](https://cursor.com/en/install-mcp?name=domainkits&config=eyJ1cmwiOiJodHRwczovL2FwaS5kb21haW5raXRzLmNvbS92MS9tY3AifQ==)
 [![Claude Directory](https://img.shields.io/badge/Claude-Directory-D97757?style=flat-square&logo=claude&logoColor=white)](https://claude.ai/directory/domainkits)
+[![ChatGPT Plugin](https://img.shields.io/badge/ChatGPT-Plugin-10A37F?style=flat-square)](https://chatgpt.com/plugins/plugin_asdk_app_6abd06fde70c819187c8c5a0c73576db)
 [![GitHub Plugin](https://img.shields.io/badge/GitHub-Plugin-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/ABTdomain/domainkits-plugins)
 [![npm](https://img.shields.io/npm/v/@domainkits/mcp?style=flat-square&logo=npm)](https://www.npmjs.com/package/@domainkits/mcp)
 
